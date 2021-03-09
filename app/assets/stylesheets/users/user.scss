@@ -1,0 +1,99 @@
+$cWhite: white;
+$cBlack: black;
+$cBurlywood: burlywood;
+$cLightGray: lightgray;
+
+.row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  margin-bottom: 0;
+  max-width: 660px;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: $cWhite;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.8);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login_title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.login_field {
+  padding: 10px;
+  text-align: center;
+}
+
+.user-form-label {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.user-form-input {
+  width: 300px;
+  color: #222;
+  background: $cWhite;
+  border: 1px solid $cBurlywood;
+  border-radius: 9px;
+  padding: 0 8px;
+  line-height: 40px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: start;
+}
+
+.user-form-select {
+  width: 300px;
+  color: #222;
+  background: $cWhite;
+  border: 1px solid $cBurlywood;
+  border-radius: 9px;
+  padding: 0 8px;
+  line-height: 40px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+}
+
+.action {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: $cBurlywood;
+  border: 1px solid $cWhite;
+  font-size: 16px;
+  padding: 10px 60px;
+  margin: 10px auto;
+  cursor: pointer;
+  transition: all 0.4s;
+  color: black;
+  text-decoration: none !important;
+
+  &.solid {
+    border-radius: 9px;
+    box-shadow: 2px 2px 0 0 gray;
+
+    &:hover {
+      box-shadow: none;
+      transform: translate(1px, 1px);
+    }
+  }
+}
+

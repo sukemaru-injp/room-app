@@ -1,0 +1,59 @@
+<div id="container">
+  <div class="contents row">
+    <div class="container">
+      <h2 class="login_title">新規登録</h2>
+      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :name, "Name" %>
+          </div>
+          <div>
+            <%= f.text_field :name, autofocus: true, class: "user-form-input"%>
+          </div>
+        </div>
+
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :email, "Email" %>
+          </div>
+          <div>
+            <%= f.email_field :email, autofocus: true, class: "user-form-input"%>
+          </div>
+        </div>
+
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :password, "Password" %>
+          </div>
+          <div>
+            <%= f.password_field :password, autofocus: true, class: "user-form-input"%>
+          </div>
+        </div>
+
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :password_confirmation, "Password Confirmation" %>
+          </div>
+          <div>
+            <%= f.password_field :password_confirmation, autofocus: true, class: "user-form-input"%>
+          </div>
+        </div>
+
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :sex_id, "Your Sex" %>
+          </div>
+          <div>
+            <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"user-form-select"}) %>
+          </div>
+        </div>
+
+        <div class="action">
+          <%= f.submit "登録する", class: "btn btn-success solid" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

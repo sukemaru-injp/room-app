@@ -1,0 +1,436 @@
+$cWhite: white;
+$cBlack: black;
+$cBurlywood: burlywood;
+$cLightGray: lightgray;
+
+
+.menu-open {
+    & #container {
+        transform: translate(-350px, 80px);
+        box-shadow: 0 30px 90px -10px rgba(226, 136, 20, 0.9);
+    }
+}
+
+#container {
+    position: relative;
+    background-color: white;
+    // height: 100vh;
+    z-index: 2;
+    transition: all 0.4s;
+    opacity: 0.9;
+}
+
+.mobile-menu {
+    position: fixed;
+    right: 0;
+    top: 80px;
+    width: 300px;
+
+    &__btn {
+        background-color: unset;
+        border: none;
+        outline: none !important;
+        cursor: pointer;
+    
+        & > span {
+            background-color: $cBlack;
+            width: 35px;
+            height: 2px;
+            display: block;
+            margin-bottom: 9px;
+            transition: transform 0.7s;
+    
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s;
+    }
+
+    &__main {
+        padding: 0;
+        perspective: 2000px;
+        transform-style: preserve-3d;
+    }
+
+    &__item {
+        list-style: none;
+        display: block;
+        transform: translate3d(0, 0, -1000px);
+        padding: 0 50px;
+        transition: transform 0.3s, opacity 0.3s;
+        opacity: 0;
+    }
+
+    &__link {
+        display: block;
+        margin-top: 30px;
+        color: $cBlack;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 24px;    
+    }
+}
+
+.header {
+    background-color: $cBurlywood;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.header-left {
+    margin-left: 20px;
+
+    & .room-app {
+        text-decoration: none;
+        color: $cBlack;
+    }
+}
+
+.menu-open {
+
+    .mobile-menu {
+
+        &__cover {
+            opacity: 1;
+            visibility: visible;
+            cursor: pointer;
+        }
+        
+        &__item {
+            transform: none;
+            opacity: 1;
+
+            @for $i from 1 through 8 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 0.09s;
+                }
+            }
+
+            &__btn {
+                & > span {
+                    background-color: $cBlack;
+            
+                    &:nth-child(1) {
+                        transition-delay: 70ms;
+                        transform: translateY(11px) rotate(135deg);
+                    }
+                    &:nth-child(2) {
+                        transition-delay: 0s;
+                        transform:  translateX(-18px) scaleX(0);
+                    }
+                    &:nth-child(3) {
+                        transition-delay: 140ms;
+                        transform: translateY(-11px) rotate(-135deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ↓index
+
+.content-width {
+    width: 90vw;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%;
+}
+
+// スライダーcss
+
+.swiper-container {
+    overflow: visible !important;
+    margin-top: 20px;
+}
+
+
+.swiper-slide {
+    overflow: hidden;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        transform: scale(1.2);
+        transition: transform 1.5s ease;
+    }
+
+    &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(226, 164, 82, 0.1);
+    }
+
+    &-active {
+        & > img {
+            transform: none;
+        }
+
+    & .hero__title {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    & .hero__link {
+        opacity: 0.8;
+        transform: translate(-50%, -50%);
+    }
+    }
+}
+
+.hero {
+    overflow: hidden;
+    &__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% + 20px));
+        color: $cWhite;
+        font-size: 24px;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.4s ease 1s, transform 0.4s ease 1s;
+    }
+
+    &__link {
+        position: absolute;
+        z-index: 2;
+        top: 60%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 20px));
+        transition: opacity 0.4s ease 1s, transform 0.4s ease 1s;
+
+    & .hero__btn {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        box-sizing: border-box;
+        border-radius: 20px;
+        max-width: 230px;
+        line-height: 45px;
+        text-align: center;
+        color: $cWhite;
+        letter-spacing: 0.04em;
+        font-size: 1.1rem;
+        font-weight: 400;
+        display: block;
+        margin: 0 auto;
+        cursor: pointer;
+        width: 190px;
+        height: 50px;
+        text-decoration: none;
+    }
+
+    :hover {
+        background-color: $cBurlywood;
+        font-size: 1.2em;
+        transition: all 0.4s;
+    }
+
+    }
+}
+
+// スライダーcss終わり
+
+// 検索css
+
+#search-content {
+    height: auto;
+    margin-top: 50px ;
+    border: 2px solid $cBurlywood;
+    border-radius: 5px;
+    padding: 20px 50px;
+    background-color: rgba(226, 164, 82, 0.1);
+    box-shadow: 0 5px 20px 5px rgba(226, 136, 20, 0.3);
+}
+
+.search-form {
+    max-height: 100%;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+
+
+    &__word {
+        margin: 20px 0 15px;
+        padding: 10px;
+        border-radius: 10px;
+
+    &__input {
+        width: 50vw;
+        height: 50px;
+        border-radius: 10px;
+        border: 2px solid $cBurlywood;
+        outline: none;
+        padding: 5px 10px;
+    }
+
+    &__btn {
+        display: inline-block;
+        background-color: $cBurlywood;
+        border: 1px solid $cWhite;
+        font-size: 16px;
+        padding: 10px 30px;
+        margin: 20px 30px;
+        cursor: pointer;
+        transition: all 0.4s;
+        color: black;
+        text-decoration: none !important;
+        outline: none;
+        border-radius: 10px;
+    
+    
+        &:hover {
+            background-color: rgb(230, 170, 90);
+            transition: all 0.3s;
+        }
+    }
+    
+    }
+}
+
+.search-select {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__container {
+        flex-basis: 50%;
+        margin-top: 20px;
+        text-align: center;
+
+    &__label {
+        font-size: 16px;
+        margin: 0 auto;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    &__list {
+        display: inline-block;
+        width: 180px;
+        height: 50px;
+        outline: none;
+        border-radius: 9px;
+        border: 1px solid $cBurlywood;
+    }
+    }
+    
+    &__btn {
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+// 検索css終わり
+
+// 一覧css
+
+#rooms-content {
+    height: auto;
+    margin-top: 150px;
+    text-align: center;
+    position: relative;
+}
+
+.rooms-items {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.rooms-item__card {
+    flex-basis: 45%;
+    background-color: $cLightGray;
+    margin: 40px 10px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 5px rgba(119, 118, 118, 0.5);
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+        transform: scale(1.1)
+    }
+
+
+    &__user {
+        text-decoration: none;
+        color: $cBlack;
+    }
+
+    &__img {
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+
+}
+
+.room-tag {
+    text-decoration: none;
+    color: $cBlack;
+    background-color: $cLightGray;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 5px 5px;
+    margin-top: 15px;
+    transition: all 0.4s ease;
+    border: 1px solid $cBlack;
+
+    &:hover {
+        color: $cBlack;
+        text-decoration: none;
+        background-color: gray;
+        transform: scale(1.1)
+    }
+    }
+
+.rooms-items {
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 95%;
+        background-color: $cBurlywood;
+        opacity: 0.5;
+        border-radius: 10px;
+    }
+}
+

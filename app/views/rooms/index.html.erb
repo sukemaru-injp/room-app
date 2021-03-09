@@ -1,0 +1,156 @@
+<div id="container">
+  <div id="content">
+    <div class="hero">
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="hero__title">あなたのお部屋を投稿しよう</div>
+            <div class="hero__link">
+              <a href="#" class="hero__btn">投稿する</a>
+            </div>
+            <%= image_tag 'IMG_7141.png' %>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="hero__title">模様替えを自慢しよう</div>
+            <div class="hero__link">
+              <a href="#" class="hero__btn">編集する</a>
+            </div>
+            <%= image_tag 'IMG_7142.png' %>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="hero__title">おしゃれなお部屋を探そう</div>
+            <div class="hero__link">
+              <a href="#search-content" class="hero__btn">検索する</a>
+            </div>
+            <%= image_tag 'IMG_7143.png' %>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="hero__title">みんなのお部屋を覗こう</div>
+            <div class="hero__link">
+              <a href="#rooms-content" class="hero__btn">一覧を見る</a>
+            </div>
+            <%= image_tag 'IMG_7137.png' %>
+          </div>
+
+          
+        </div>
+        <div class="hero__footer"></div>
+      </div>
+
+    </div>
+  </div>
+
+        <!-- 検索エリア -->
+  <div id="search-content" class="content-width">
+    <h2>ワードから検索する</h2>
+    <div class="search-form">
+      <div class="search-form__word">
+        <input type="text" name="keyword" id="keyword" placeholder="気になるワードで調べてみよう" class="search-form__word__input">
+        <input type="submit" value="検索する" class="search-form__word__btn">
+      </div>
+    </div>
+  </div>
+
+  <div id="search-content" class="content-width">
+    <h2>条件から検索する</h2>
+    <div class="search-select">
+      <div class="search-select__container">
+        <label for="" class="search-select__container__label">性別</label>
+        <select name="#" id="" class="search-select__container__list">
+          <option value="0">---</option>
+        </select>
+      </div>
+
+      <div class="search-select__container">
+        <label for="" class="search-select__container__label">お部屋の場所</label>
+        <select name="#" id="" class="search-select__container__list">
+          <option value="0">---</option>
+        </select>
+      </div>
+
+      <div class="search-select__container">
+        <label for="" class="search-select__container__label">お部屋の間取り</label>
+        <select name="#" id="" class="search-select__container__list">
+          <option value="0">---</option>
+        </select>
+      </div>
+
+      <div class="search-select__container">
+        <label for="" class="search-select__container__label">ライフスタイル</label>
+        <select name="#" id="" class="search-select__container__list">
+          <option value="0">---</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="search-select__btn">
+      <input type="submit" value="検索する" class="search-form__word__btn">
+    </div>
+  </div>
+
+      <!-- 検索エリア終わり -->
+
+    <div id="rooms-content" class="content-width">
+      <h2 class="rooms-content__title">#みんなのお部屋</h2>
+      <div class="rooms-items">
+
+        <div class="rooms-item__card">
+          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
+          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
+            <div class="rooms-item__img">
+            <%= image_tag 'IMG_7144.png' %>
+          </div>
+          <div class="room-item__tag">
+            <a href="#" class="room-tag">
+              #西欧風
+            </a>
+          </div>
+        </div>
+
+        <div class="rooms-item__card">
+          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
+          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
+          <div class="rooms-item__img">
+            <%= image_tag 'IMG_7146.png' %>
+          </div>
+          <div class="room-item__tag">
+            <a href="#" class="room-tag">
+              #ベッドルーム
+            </a>
+          </div>
+
+        </div>
+
+        <div class="rooms-item__card">
+          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
+          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
+          <div class="rooms-item__img">
+            <%= image_tag 'IMG_7144.png' %>
+          </div>
+          <div class="room-item__tag">
+            <a href="#" class="room-tag">
+              #西欧風
+            </a>
+          </div>
+
+        </div>
+
+        <div class="rooms-item__card">
+          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
+          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
+          <div class="rooms-item__img">
+            <%= image_tag 'IMG_7139.png' %>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+</div>

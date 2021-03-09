@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RoomApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <div id="global-container">
+        <div id="container">
+            <div class="mobile-menu__cover"></div>
+            <header class="header">
+                <div class="header-left">
+                    <a href="" class="room-app">
+                        <h1>ROOM APP(仮)</h2>
+                    </a>
+                </div>
+                <div class="header-right">
+                    <button class="mobile-menu__btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>    
+            </header>
+        </div>
+        <nav class="mobile-menu">
+            <ul class="mobile-menu__main">
+            <% if user_signed_in? %>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">
+                        <span class="main-title"><%= current_user.name %>さんの部屋</span>
+                    </a>
+                </li>
+
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">
+                        <span class="main-title">ログアウト</span>
+                    </a>
+                </li>
+            <% else %>
+                <li class="mobile-menu__item">
+                    <%= link_to '新規登録', new_user_registration_path, class: "mobile-menu__link" %>
+                </li>
+
+                <li class="mobile-menu__item">
+                    
+                    <a href="#" class="mobile-menu__link">
+                        <span class="main-title">ログイン</span>
+                    </a>
+                </li>
+            <% end %>
+
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link">
+                        <span class="main-title">room-app(仮)について</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <%= yield %>
+
+    </div>
+
+    <footer class="footer">
+    
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
