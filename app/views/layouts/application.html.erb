@@ -28,6 +28,11 @@
                     </button>
                 </div>    
             </header>
+
+            <%= yield %>
+
+            <footer class="footer">
+            </footer>
         </div>
         <nav class="mobile-menu">
             <ul class="mobile-menu__main">
@@ -64,13 +69,9 @@
             </ul>
         </nav>
 
-        <%= yield %>
-
+    
     </div>
 
-    <footer class="footer">
-    
-    </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

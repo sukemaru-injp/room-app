@@ -11,14 +11,27 @@ $cLightGray: lightgray;
     }
 }
 
-#container {
-    position: relative;
-    background-color: white;
-    // height: 100vh;
-    z-index: 2;
-    transition: all 0.4s;
-    opacity: 0.9;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    opacity: 0.8;
 }
+
+#content {
+    margin-top: 100px;
+}
+
+// #container {
+//     position: relative;
+//     background-color: white;
+//     height: 100vh;
+//     z-index: 2;
+//     transition: all 0.4s;
+//     opacity: 0.9;
+// }
 
 .mobile-menu {
     position: fixed;

@@ -5,13 +5,17 @@
           box-shadow: 0 30px 90px -10px rgba(226, 136, 20, 0.9);
 }
 
-#container {
-  position: relative;
-  background-color: white;
-  z-index: 2;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  opacity: 0.9;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  opacity: 0.8;
+}
+
+#content {
+  margin-top: 100px;
 }
 
 .mobile-menu {
