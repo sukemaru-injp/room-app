@@ -1,3 +1,24 @@
+body {
+  font-family: 'PT Sans', 'Noto Sans JP', sans-serif;
+}
+
+.error-alert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.error-message {
+  font-size: 18px;
+  list-style: none;
+  color: #b63000;
+  margin-bottom: 10px;
+}
+
 .menu-open #container {
   -webkit-transform: translate(-350px, 80px);
           transform: translate(-350px, 80px);
@@ -5,10 +26,20 @@
           box-shadow: 0 30px 90px -10px rgba(226, 136, 20, 0.9);
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  opacity: 0.8;
+}
+
 #container {
+  padding-top: 100px;
   position: relative;
   background-color: white;
-  z-index: 2;
+  z-index: 10;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   opacity: 0.9;
@@ -55,6 +86,7 @@
   visibility: hidden;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
+  z-index: 100;
 }
 
 .mobile-menu__main {
@@ -271,7 +303,7 @@ img {
   -webkit-transform: translate(-50%, calc(-50% + 20px));
           transform: translate(-50%, calc(-50% + 20px));
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   z-index: 2;
   opacity: 0;
   -webkit-transition: opacity 0.4s ease 1s, -webkit-transform 0.4s ease 1s;
@@ -292,6 +324,7 @@ img {
   transition: opacity 0.4s ease 1s, -webkit-transform 0.4s ease 1s;
   transition: opacity 0.4s ease 1s, transform 0.4s ease 1s;
   transition: opacity 0.4s ease 1s, transform 0.4s ease 1s, -webkit-transform 0.4s ease 1s;
+  margin-top: 15px;
 }
 
 .hero__link .hero__btn {
