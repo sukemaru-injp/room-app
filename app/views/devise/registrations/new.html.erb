@@ -10,7 +10,7 @@
             <%= f.label :name, "Name" %>
           </div>
           <div>
-            <%= f.text_field :name, autofocus: true, class: "user-form-input"%>
+            <%= f.text_field :name, autofocus: true, class: "user-form-input", placeholder: "例）おしゃれ好き蔵"%>
           </div>
         </div>
 
@@ -28,7 +28,7 @@
             <%= f.label :password, "Password" %>
           </div>
           <div>
-            <%= f.password_field :password, autofocus: true, class: "user-form-input"%>
+            <%= f.password_field :password, autofocus: true, class: "user-form-input", placeholder: "6文字以上のパスワード"%>
           </div>
         </div>
 
@@ -37,7 +37,7 @@
             <%= f.label :password_confirmation, "Password Confirmation" %>
           </div>
           <div>
-            <%= f.password_field :password_confirmation, autofocus: true, class: "user-form-input"%>
+            <%= f.password_field :password_confirmation, autofocus: true, class: "user-form-input", placeholder: "同じパスワードを入力してください" %>
           </div>
         </div>
 
