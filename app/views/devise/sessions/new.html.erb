@@ -3,31 +3,33 @@
     <div class="container">
       <h2 class="login_title">ログイン</h2>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-      <div class="login_field">
-        <div class="user-form-label">
-          <%= f.label :email, "Email" %>
-        </div>
-        <div>
-          <%= f.email_field :email, autofocus: true, class: "user-form-input"%>
-        </div>
-      </div>
+        <%= render 'shared/error_messages', model: f.object %>
 
-      <div class="login_field">
-        <div class="user-form-label">
-          <%= f.label :password, "Password" %>
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :email, "Email" %>
+          </div>
+          <div>
+            <%= f.email_field :email, autofocus: true, class: "user-form-input"%>
+          </div>
         </div>
-        <div>
-          <%= f.password_field :password, autofocus: true, class: "user-form-input"%>
-        </div>
-      </div>
 
-      <div class="action">
-        <%= f.submit "ログインする", class: "btn btn-success solid" %>
-      </div>
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :password, "Password" %>
+          </div>
+          <div>
+            <%= f.password_field :password, autofocus: true, class: "user-form-input"%>
+          </div>
+        </div>
+
+        <div class="action">
+          <%= f.submit "ログインする", class: "btn btn-success solid" %>
+        </div>
     <% end %>
     </div>
   </div>
 </div>
 
 
-<%# <%= render "devise/shared/links" %> %>
+<%# <%= render "devise/shared/links" %>

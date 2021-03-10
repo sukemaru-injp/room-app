@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
     validates :name, presence: true
     validates :sex_id, presence: true
-    validates :sex_id, numericality: { other_than: 1 } 
+    validates :sex_id, presence: true, numericality: { other_than: 1 } 
 
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :sex

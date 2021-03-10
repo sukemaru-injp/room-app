@@ -3,6 +3,23 @@ $cBlack: black;
 $cBurlywood: burlywood;
 $cLightGray: lightgray;
 
+body {
+    font-family: 'PT Sans', 'Noto Sans JP', sans-serif;
+}
+
+.error-alert {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.error-message {
+    font-size: 18px;
+    list-style: none;
+    color: rgb(182, 48, 0);
+    margin-bottom: 10px;
+}
+
 
 .menu-open {
     & #container {
@@ -240,6 +257,7 @@ img {
         opacity: 0;
         transform: translate(-50%, calc(-50% + 20px));
         transition: opacity 0.4s ease 1s, transform 0.4s ease 1s;
+        margin-top: 15px;
 
     & .hero__btn {
         border: 2px solid rgba(255, 255, 255, 0.8);

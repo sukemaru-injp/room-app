@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
@@ -44,9 +45,7 @@
                 </li>
 
                 <li class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">
-                        <span class="main-title">ログアウト</span>
-                    </a>
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "mobile-menu__link" %>
                 </li>
             <% else %>
                 <li class="mobile-menu__item">
@@ -55,9 +54,6 @@
 
                 <li class="mobile-menu__item">
                     <%= link_to 'ログイン', new_user_session_path, class: "mobile-menu__link" %>
-                    <%# <a href="#" class="mobile-menu__link">
-                        <span class="main-title">ログイン</span>
-                    </a> %>
                 </li>
             <% end %>
 

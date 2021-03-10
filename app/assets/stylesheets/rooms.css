@@ -1,3 +1,24 @@
+body {
+  font-family: 'PT Sans', 'Noto Sans JP', sans-serif;
+}
+
+.error-alert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.error-message {
+  font-size: 18px;
+  list-style: none;
+  color: #b63000;
+  margin-bottom: 10px;
+}
+
 .menu-open #container {
   -webkit-transform: translate(-350px, 80px);
           transform: translate(-350px, 80px);
@@ -303,6 +324,7 @@ img {
   transition: opacity 0.4s ease 1s, -webkit-transform 0.4s ease 1s;
   transition: opacity 0.4s ease 1s, transform 0.4s ease 1s;
   transition: opacity 0.4s ease 1s, transform 0.4s ease 1s, -webkit-transform 0.4s ease 1s;
+  margin-top: 15px;
 }
 
 .hero__link .hero__btn {
