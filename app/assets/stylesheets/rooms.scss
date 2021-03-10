@@ -20,18 +20,14 @@ $cLightGray: lightgray;
     opacity: 0.8;
 }
 
-#content {
-    margin-top: 100px;
+#container {
+    padding-top: 100px;
+    position: relative;
+    background-color: $cWhite;
+    z-index: 10;
+    transition: all 0.4s;
+    opacity: 0.9;
 }
-
-// #container {
-//     position: relative;
-//     background-color: white;
-//     height: 100vh;
-//     z-index: 2;
-//     transition: all 0.4s;
-//     opacity: 0.9;
-// }
 
 .mobile-menu {
     position: fixed;
@@ -69,6 +65,7 @@ $cLightGray: lightgray;
         opacity: 0;
         visibility: hidden;
         transition: opacity 1s;
+        z-index: 100;
     }
 
     &__main {
@@ -229,7 +226,7 @@ img {
         left: 50%;
         transform: translate(-50%, calc(-50% + 20px));
         color: $cWhite;
-        font-size: 24px;
+        font-size: 20px;
         z-index: 2;
         opacity: 0;
         transition: opacity 0.4s ease 1s, transform 0.4s ease 1s;
