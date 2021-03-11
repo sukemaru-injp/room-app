@@ -1,14 +1,14 @@
 <div id="content" >
   <div class="content-width new-room">
     <div class="container">
-    <%= form_with(model: @room, local: true) do |f| %>
+    <%= form_with model: @room, url: rooms_path, local: true do |f| %>
       <h2 class="login_title">お部屋を投稿する</h2>
         <!-- 部分テンプレート↓↓↓ -->
       <div class="room_field">
         <p class="room-image-label">
           クリックしてファイルをアップロード
         </p>
-        <input type="file" id="room_image">
+        <%= f.file_field :image, id:"room_image" %>
       </div>
       <div id="image_preview"><p class="remove">※ファイルを選択してください</p></div>
 
@@ -53,10 +53,10 @@
 
       <div class="room_field">
         <div class="room-form-label">
-          <%= f.label :tag, "#お部屋にタグ付け" %>
+          <%= f.label :name, "#お部屋にタグ付け" %>
         </div>
         <div>
-          <%= f.text_field :tag, class: "room-form-input", placeholder: "例)日本の茶室" %>
+          <%= f.text_field :name, class: "room-form-input", placeholder: "例)日本の茶室" %>
         </div>
       </div>
 

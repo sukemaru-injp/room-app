@@ -24,7 +24,6 @@ class Room < ApplicationRecord
     validates :place_id
     validates :floor_id
     validates :style_id
-
   end
 
 
