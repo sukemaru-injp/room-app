@@ -1,0 +1,107 @@
+<div id="content" >
+  <div class="content-width new-room">
+    <div class="container">
+    <%= form_with(model: @room, local: true) do |f| %>
+      <h2 class="login_title">お部屋を投稿する</h2>
+        <!-- 部分テンプレート↓↓↓ -->
+      <div class="room_field">
+        <p class="room-image-label">
+          クリックしてファイルをアップロード
+        </p>
+        <input type="file" id="room_image">
+      </div>
+      <div id="image_preview"><p class="remove">※ファイルを選択してください</p></div>
+
+      <div class="room_field">
+        <div class="room-form-label">
+          <label for="#">お部屋のタイトル</label>
+        </div>
+        <div>
+          <input type="text" class="room-form-input" placeholder="例)私の茶室">
+        </div>
+      </div>
+
+      <div class="room_field">
+        <div class="room-form-label">
+          <label for="#">私の部屋のここを見て！</label>
+        </div>
+        <div>
+          <textarea name="#" class="room-form-text" rows="4" cols="40" placeholder="あなたの部屋のこだわりポイント"></textarea>
+        </div>
+      </div>
+
+      <div class="login_field">
+        <div class="user-form-label">
+          <label for="#">お部屋の場所</label>
+          <select name="#" id="room-place" class="room-form-select">
+            <option value="0">---</option>
+            <option value="1">リビング</option>
+            <option value="2">ダイニング</option>
+            <option value="3">ベッドルーム</option>
+            <option value="4">書斎</option>
+            <option value="5">キッチン</option>
+            <option value="6">浴室</option>
+            <option value="7">トイレ</option>
+            <option value="8">クローゼット</option>
+            <option value="9">玄関</option>
+            <option value="10">その他</option>
+            </select>
+        </div>
+      </div>  
+
+      <div class="login_field">
+        <div class="user-form-label">
+            <label for="#">お部屋の間取り</label>
+          <select name="#" id="room-place" class="room-form-select">
+            <option value="0">---</option>
+            <option value="1">ワンルーム</option>
+            <option value="2">1K</option>
+            <option value="3">1DK</option>
+            <option value="4">1LDK</option>
+            <option value="5">2K</option>
+            <option value="6">2DK</option>
+            <option value="7">2LDK</option>
+            <option value="8">3K</option>
+            <option value="9">3DK</option>
+            <option value="10">3LDK</option>
+            <option value="11">4K以上</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="login_field">
+        <div class="user-form-label">
+          <label for="#">ライフスタイル</label>
+            <select name="#" id="room-place" class="room-form-select">
+            <option value="0">---</option>
+            <option value="1">一人暮らし</option>            
+            <option value="2">二人暮らし</option>
+            <option value="3">三人家族</option>
+            <option value="4">四人家族</option>
+            <option value="5">五人家族</option>
+            <option value="6">それ以上の大家族</option>
+            <option value="7">寮</option>
+            <option value="8">シェアハウス</option>
+            <option value="9">その他</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="room_field">
+        <div class="room-form-label">
+          <label for="#">#お部屋にタグ付け</label>
+        </div>
+        <div>
+          <input type="text" class="room-form-input" placeholder="例)日本の茶室">
+        </div>
+      </div>
+
+      <div class="action">
+        <input type="submit" value="投稿する" class="btn btn-success solid">
+      </div>
+      <!-- 部分テンプレート↑↑ -->
+      
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -130,6 +130,7 @@ body {
 
     & .room-app {
         text-decoration: none;
+        font-size: 30px;
         color: $cBlack;
     }
 }
@@ -461,4 +462,85 @@ img {
         border-radius: 10px;
     }
 }
+
+
+// room-new
+
+.new-room {
+    margin: 50px;
+}
+
+.room_field {
+    padding: 10px;
+    text-align: center;
+}
+
+.room-form-label {
+    text-align: left;
+    font-size: 20px;
+    padding: 15px 20px 20px 20px;
+}
+
+.room-form-input {
+    width: 400px;
+    color: #222;
+    background: $cWhite;
+    border: 1px solid $cBurlywood;
+    border-radius: 10px;
+    padding: 0 8px;
+    line-height: 40px;
+    font-size: 18px;
+    display: inline-block;
+    text-align: start;
+}
+
+.room-form-text {
+    height: 500px;
+    width: 400px;
+    font-size: 18px;
+    color: $cBlack;
+    background: $cWhite;
+    border: 1px solid $cBurlywood;
+    border-radius: 10px;
+    padding: 15px 15px;
+}
+
+#image_preview {
+    height: 250px;
+    width: 400px;
+    background-color: $cBurlywood;
+    color: gray;
+    margin: 20px 20px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 15px  rgba(41, 41, 41, 0.7);
+
+    & img {
+        border-radius: 10px;
+        box-shadow: 0 0 15px  rgba(41, 41, 41, 0.7);
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.room-form-select {
+    width: 300px;
+    color: #222;
+    background: $cWhite;
+    border: 1px solid $cBurlywood;
+    border-radius: 9px;
+    padding: 0 8px;
+    line-height: 40px;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    margin: 30px;
+}
+
+
+
 

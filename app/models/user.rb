@@ -11,4 +11,6 @@ class User < ApplicationRecord
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :sex
     
+
+    has_one :room
 end

@@ -152,6 +152,7 @@ body {
 
 .header-left .room-app {
   text-decoration: none;
+  font-size: 30px;
   color: black;
 }
 
@@ -537,5 +538,83 @@ img {
   background-color: burlywood;
   opacity: 0.5;
   border-radius: 10px;
+}
+
+.new-room {
+  margin: 50px;
+}
+
+.room_field {
+  padding: 10px;
+  text-align: center;
+}
+
+.room-form-label {
+  text-align: left;
+  font-size: 20px;
+  padding: 15px 20px 20px 20px;
+}
+
+.room-form-input {
+  width: 400px;
+  color: #222;
+  background: white;
+  border: 1px solid burlywood;
+  border-radius: 10px;
+  padding: 0 8px;
+  line-height: 40px;
+  font-size: 18px;
+  display: inline-block;
+  text-align: start;
+}
+
+.room-form-text {
+  height: 500px;
+  width: 400px;
+  font-size: 18px;
+  color: black;
+  background: white;
+  border: 1px solid burlywood;
+  border-radius: 10px;
+  padding: 15px 15px;
+}
+
+#image_preview {
+  height: 250px;
+  width: 400px;
+  background-color: burlywood;
+  color: gray;
+  margin: 20px 20px;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0 0 15px rgba(41, 41, 41, 0.7);
+          box-shadow: 0 0 15px rgba(41, 41, 41, 0.7);
+}
+
+#image_preview img {
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px rgba(41, 41, 41, 0.7);
+          box-shadow: 0 0 15px rgba(41, 41, 41, 0.7);
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.room-form-select {
+  width: 300px;
+  color: #222;
+  background: white;
+  border: 1px solid burlywood;
+  border-radius: 9px;
+  padding: 0 8px;
+  line-height: 40px;
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+  margin: 30px;
 }
 /*# sourceMappingURL=rooms.css.map */
