@@ -14,93 +14,56 @@
 
       <div class="room_field">
         <div class="room-form-label">
-          <label for="#">お部屋のタイトル</label>
+          <%= f.label :title, "お部屋のタイトル" %>
         </div>
         <div>
-          <input type="text" class="room-form-input" placeholder="例)私の茶室">
+          <%= f.text_field :title, class: "room-form-input", placeholder: "例)私の茶室" %>
         </div>
       </div>
 
       <div class="room_field">
         <div class="room-form-label">
-          <label for="#">私の部屋のここを見て！</label>
+          <%= f.label :content, "私の部屋のここを見て！" %>
         </div>
         <div>
-          <textarea name="#" class="room-form-text" rows="4" cols="40" placeholder="あなたの部屋のこだわりポイント"></textarea>
+          <%= f.text_area :content, class: "room-form-text", placeholder: "あなたの部屋のこだわりポイント" %>
         </div>
       </div>
 
-      <div class="login_field">
+      <div class="room_field">
         <div class="user-form-label">
-          <label for="#">お部屋の場所</label>
-          <select name="#" id="room-place" class="room-form-select">
-            <option value="0">---</option>
-            <option value="1">リビング</option>
-            <option value="2">ダイニング</option>
-            <option value="3">ベッドルーム</option>
-            <option value="4">書斎</option>
-            <option value="5">キッチン</option>
-            <option value="6">浴室</option>
-            <option value="7">トイレ</option>
-            <option value="8">クローゼット</option>
-            <option value="9">玄関</option>
-            <option value="10">その他</option>
-            </select>
+          <%= f.label :place_id, "お部屋の場所" %>
+          <%= f.collection_select(:place_id, Place.all, :id, :name, {}, {class:"room-form-select"}) %>
         </div>
       </div>  
 
-      <div class="login_field">
+      <div class="room_field">
         <div class="user-form-label">
-            <label for="#">お部屋の間取り</label>
-          <select name="#" id="room-place" class="room-form-select">
-            <option value="0">---</option>
-            <option value="1">ワンルーム</option>
-            <option value="2">1K</option>
-            <option value="3">1DK</option>
-            <option value="4">1LDK</option>
-            <option value="5">2K</option>
-            <option value="6">2DK</option>
-            <option value="7">2LDK</option>
-            <option value="8">3K</option>
-            <option value="9">3DK</option>
-            <option value="10">3LDK</option>
-            <option value="11">4K以上</option>
-          </select>
+            <%= f.label :floor_id, "お部屋の間取り" %>
+            <%= f.collection_select(:floor_id, Floor.all, :id, :name, {}, {class:"room-form-select"}) %>
         </div>
       </div>
 
       <div class="login_field">
         <div class="user-form-label">
-          <label for="#">ライフスタイル</label>
-            <select name="#" id="room-place" class="room-form-select">
-            <option value="0">---</option>
-            <option value="1">一人暮らし</option>            
-            <option value="2">二人暮らし</option>
-            <option value="3">三人家族</option>
-            <option value="4">四人家族</option>
-            <option value="5">五人家族</option>
-            <option value="6">それ以上の大家族</option>
-            <option value="7">寮</option>
-            <option value="8">シェアハウス</option>
-            <option value="9">その他</option>
-          </select>
+          <%= f.label :style_id, "ライフスタイル" %>
+          <%= f.collection_select(:style_id, Style.all, :id, :name, {}, {class:"room-form-select"}) %>
         </div>
       </div>
 
       <div class="room_field">
         <div class="room-form-label">
-          <label for="#">#お部屋にタグ付け</label>
+          <%= f.label :tag, "#お部屋にタグ付け" %>
         </div>
         <div>
-          <input type="text" class="room-form-input" placeholder="例)日本の茶室">
+          <%= f.text_field :tag, class: "room-form-input", placeholder: "例)日本の茶室" %>
         </div>
       </div>
 
       <div class="action">
-        <input type="submit" value="投稿する" class="btn btn-success solid">
+        <%= f.submit "投稿する", class: "btn btn-success solid" %>
       </div>
       <!-- 部分テンプレート↑↑ -->
-      
     <% end %>
     </div>
   </div>
