@@ -65,6 +65,12 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Sex must be other than 1")
     end
 
+    it 'nameが14文字以上では登録できない' do
+      @user.name = "あいうえおあいうえおあいうえお"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Name is too long (maximum is 14 characters)")
+    end
+
   end
 
 
