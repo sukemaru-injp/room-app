@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :user_has_room, only: [:new, :create]
 
   def index
-    
+    @rooms = Room.includes(:user).limit(8).order(id: "DESC")
   end
 
   def new

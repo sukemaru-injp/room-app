@@ -3,19 +3,9 @@ $cBlack: black;
 $cBurlywood: burlywood;
 $cLightGray: lightgray;
 
-.row {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60px;
-  margin-bottom: 0;
-  max-width: 660px;
-  text-align: center;
-}
 
 .container {
   width: 70vw;
-  margin: 0 auto;
   padding: 30px;
   background-color: $cWhite;
   border: 1px solid #e1e1e1;
@@ -24,6 +14,10 @@ $cLightGray: lightgray;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 660px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .login_title {
