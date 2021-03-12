@@ -404,6 +404,12 @@ img {
     flex-wrap: wrap;
 }
 
+.link-cover {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .rooms-item__card {
     flex-basis: 45%;
     background-color: $cLightGray;
@@ -416,18 +422,23 @@ img {
     z-index: 2;
 
     &:hover {
-        transform: scale(1.1)
+        transform: scale(1.1);
     }
 
 
     &__user {
         text-decoration: none;
         color: $cBlack;
+
     }
 
     &__img {
         margin-top: 30px;
         border-radius: 10px;
+    }
+
+    &__title {
+        color: $cBlack;
     }
 
 }

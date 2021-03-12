@@ -1,11 +1,12 @@
 <div id="content">
     <div class="show-room content-width">
-      <h2 class="show-room__user">#シャレゾウさんのお部屋</h2>
+      <h2 class="show-room__user">#<%= @room.user.name %>のお部屋</h2>
 
-      <h3 class="show-room__title">お部屋タイトル</h3>
+      <h3 class="show-room__title"><%= @room.title %></h3>
 
       <div class="show-room__img cover-slide inview">
-        <img src="./images/IMG_7139.png" alt="" class="img-zoom inview">
+        <%# <img src="./images/IMG_7139.png" alt="" class="img-zoom inview"> %>
+        <%= image_tag @room.image, class: "img-zoom inview" %>
       </div>
 
       <div class="show-room__about">
@@ -13,17 +14,17 @@
           <tbody>
             <tr>
               <th class="detail-item">部屋の場所</th>
-              <td class="detail-value">ベッドルーム</td>
+              <td class="detail-value"><%= @room.place.name %></td>
             </tr>
 
             <tr>
               <th class="detail-item">部屋の間取り</th>
-              <td class="detail-value">1LDK</td>
+              <td class="detail-value"><%= @room.floor.name %></td>
             </tr>
 
             <tr>
               <th class="detail-item">ライフスタイル</th>
-              <td class="detail-value">一人暮らし</td>
+              <td class="detail-value"><%= @room.style.name %></td>
             </tr>
 
           </tbody>
@@ -32,13 +33,15 @@
 
       <div class="show-room__btn">
         <!-- 本人かそれ以外で切り替え -->
-        <div class="edit-link">
-            <a href="#" class="edit-link__btn">お部屋を編集する</a>
-        </div>
-
-        <div class="like-link">
-            <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
-        </div>
+        <% if current_user.id == @room.user_id %>
+          <div class="edit-link">
+              <a href="#" class="edit-link__btn">お部屋を編集する</a>
+          </div>
+        <% else %>
+          <div class="like-link">
+              <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
+          </div>
+        <% end %>
         <!-- 切り替え終わり -->
       </div>
 
@@ -46,10 +49,12 @@
         <h4 class="content-title">#シャレゾウさんのお部屋のこだわり</h3>
         <div class="content-box">
           <p class="content-box__text">
-            私の部屋はとてもおしゃれなんです。何よりぬいぐるみをおしゃれに見せるところにこだわって生活しているのでぜひ分かってもらいたいです。
+            <%= @room.content%>
           </p>
         </div>
       </div>
+
+      <%# ↓↓↓コメント機能 %>
 
       <div class="comment-table">
         <h4 class="comment-table__title">#寄せられているコメント</h4>
