@@ -99,18 +99,20 @@
         <div class="rooms-items">
           <% @rooms.each do |room| %>
             <div class="rooms-item__card">
-              <h4 class="rooms-item__card__title"><%= room.title %></h4>
-              <a href="#" class="rooms-item__card__user"><%= room.user.name %></a>
-                <div class="rooms-item__img">
-                  <%= image_tag room.image %>
+              <%= link_to room_path(room.id) do %>
+                <h4 class="rooms-item__card__title"><%= room.title %></h4>
+                <a href="#" class="rooms-item__card__user"><%= room.user.name %></a>
+                  <div class="rooms-item__img">
+                    <%= image_tag room.image %>
+                  </div>
+                <div class="room-item__tag">
+                  <a href="#" class="room-tag">
+                    <% room.tags.each do |tag| %>
+                      #<%= tag.name %>
+                    <% end %>
+                  </a>
                 </div>
-              <div class="room-item__tag">
-                <a href="#" class="room-tag">
-                  <% room.tags.each do |tag| %>
-                    #<%= tag.name %>
-                  <% end %>
-                </a>
-              </div>
+              <% end %>
             </div>
           <% end %>
         </div>
