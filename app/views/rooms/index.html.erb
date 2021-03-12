@@ -106,11 +106,11 @@
                     <%= image_tag room.image %>
                   </div>
                 <div class="room-item__tag">
-                  <a href="#" class="room-tag">
-                    <% room.tags.each do |tag| %>
-                      #<%= tag.name %>
-                    <% end %>
-                  </a>
+                  <% room.tags.each do |tag| %>
+                    <a href="#" class="room-tag">
+                        #<%= tag.name %>
+                    </a>
+                  <% end %>
                 </div>
               <% end %>
             </div>

@@ -5,7 +5,6 @@
       <h3 class="show-room__title"><%= @room.title %></h3>
 
       <div class="show-room__img cover-slide inview">
-        <%# <img src="./images/IMG_7139.png" alt="" class="img-zoom inview"> %>
         <%= image_tag @room.image, class: "img-zoom inview" %>
       </div>
 
@@ -35,7 +34,7 @@
         <!-- 本人かそれ以外で切り替え -->
         <% if current_user.id == @room.user_id %>
           <div class="edit-link">
-              <a href="#" class="edit-link__btn">お部屋を編集する</a>
+              <%= link_to '模様替え', edit_room_path(@room.id), class: "edit-link__btn" %>
           </div>
         <% else %>
           <div class="like-link">
