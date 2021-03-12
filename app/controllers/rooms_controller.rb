@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :user_has_room, only: [:new, :create]
+  before_action :set_room, only: [:edit, :update, :show]
   before_action :no_current_user, only: [:edit, :update]
 
   def index
@@ -23,12 +24,10 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    @room = Room.find(params[:id])
     @form = RoomsTag.new(room: @room)
   end
 
   def update
-    @room = Room.find(params[:id])
     @form = RoomsTag.new(room_params, room: @room)
     tag_list = params[:room][:name].split(",")
     if @form.valid?
@@ -40,13 +39,16 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
   end
 
 
   private
   def room_params
     params.require(:room).permit(:image, :title, :content, :place_id, :floor_id, :style_id, :name).merge(user_id: current_user.id)
+  end
+
+  def set_room
+    @room = Room.find(params[:id])
   end
 
   def user_has_room
