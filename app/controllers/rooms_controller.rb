@@ -18,7 +18,14 @@ class RoomsController < ApplicationController
     else
       render "new"
     end
+  end
 
+  def edit
+    @room = Room.find(params[:id])
+  end
+
+  def update
+    
   end
 
 
