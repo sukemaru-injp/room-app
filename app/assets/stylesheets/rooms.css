@@ -479,6 +479,10 @@ img {
       flex-wrap: wrap;
 }
 
+.link-cover:hover {
+  text-decoration: none;
+}
+
 .rooms-item__card {
   -ms-flex-preferred-size: 45%;
       flex-basis: 45%;
@@ -509,6 +513,10 @@ img {
 .rooms-item__card__img {
   margin-top: 30px;
   border-radius: 10px;
+}
+
+.rooms-item__card__title {
+  color: black;
 }
 
 .room-tag {

@@ -40,9 +40,7 @@
             <ul class="mobile-menu__main">
             <% if user_signed_in? %>
                 <li class="mobile-menu__item">
-                    <a href="#" class="mobile-menu__link">
-                        <span class="main-title"><%= current_user.name %>さんの部屋</span>
-                    </a>
+                    <%= link_to "#{current_user.name}さんの部屋", root_path, class: "mobile-menu__link" %>
                 </li>
 
                 <li class="mobile-menu__item">

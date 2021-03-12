@@ -1,0 +1,275 @@
+@import '../modules/mixin';
+
+$cWhite: white;
+$cBlack: black;
+$cBurlywood: burlywood;
+$cLightGray: lightgray;
+$cLikepink: pink;
+
+
+.cover-slide {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $cBurlywood;
+    opacity: 0.7;
+  }
+
+  &.inview {
+    &::after{
+      @include animation($name: kf-cover-slide, $duration: 2.0s, $timing-function: ease-in-out);
+    }
+
+  }
+}
+
+@keyframes kf-cover-slide {
+  0% {
+    left: 0;
+    right: 100%;
+  }
+
+  50% {
+    left: 0;
+    right: 0;
+  }
+
+  100% {
+    left: 100%;
+    right: 0;
+  }
+}
+
+@keyframes kf-img-show {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.1;
+  }
+
+  50% {
+opacity: 0.3;
+  }
+
+  70% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.img-zoom {
+  opacity: 0;
+
+  .inview & {
+    opacity: 1;
+    transition: transform 0.6s ease;
+    @include animation($name: kf-img-show, $duration: 2.0s, $timing-function: ease-in-out);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+}
+
+.show-room {
+  width: 80vw;
+
+  &__user {
+    text-align: center;
+    margin: 50px 30px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__img {
+    height: 90%;
+    width: 70%;
+    object-fit: cover;
+    margin: 0 auto;
+    box-shadow: 0 5px 10px 5px rgba(119, 118, 118, 0.6);
+  }
+
+  &__about {
+    margin: 50px;
+    text-align: center;
+  }
+
+  &__btn {
+    text-align: center;
+  }
+
+  &__content {
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
+.detail-table {
+  margin: 0 auto;
+  width: 50vw;
+}
+
+
+.detail-item {
+  border: 1px solid $cBurlywood;
+  padding: 15px 30px;
+  background-color: rgba(222, 184, 135, 0.3);
+  font-size: 14px;
+}
+
+.detail-value {
+  border: 1px solid $cBurlywood;
+  padding: 15px 40px;
+  background-color: rgba(222, 184, 135, 0.4);
+}
+
+
+.edit-link {
+
+  &__btn {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(222, 184, 135, 0.7);
+    box-sizing: border-box;
+    border-radius: 20px;
+    max-width: 400px;
+    padding-top: 30px;
+    text-align: center;
+    color: $cWhite;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 30vw;
+    height: 90px;
+    text-decoration: none;
+    color: $cBlack;
+  }
+
+  :hover {
+  background-color: $cBurlywood;;
+  transition: all 0.4s;
+  text-decoration: none;
+  color: $cBlack;
+  }
+}
+
+.like-link {
+
+  &__btn {
+    border: 2px solid $cLikepink;
+    background-color: rgba(222, 184, 135, 0.2);
+    box-sizing: border-box;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+    color: $cBlack;
+    letter-spacing: 0.1em;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 30vw;
+    height: 90px;
+    text-decoration: none;
+    color: $cBlack;
+    outline: none;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.content-box {
+  height: 40vh;
+  width: 60vw;
+  display: inline-block;
+  border: 2px solid $cBurlywood;
+  padding: 25px 25px;
+  text-align: left;
+  overflow-wrap: break-word;
+  overflow: scroll;
+  border-radius: 10px;
+  letter-spacing: 0.1em;
+  line-height: 1.8em;
+  box-shadow: inset 5px 10px 50px 30px rgba(222, 184, 135, 0.3);
+}
+
+.content-title {
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.comment-table {
+  margin-top: 50px;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    width: 80%;
+    padding: 15px 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: $cLightGray;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px 5px rgba(119, 118, 118, 0.6);
+  }
+}
+
+
+.comments-content {
+  display: block;
+  width: 70%;
+
+  & > p {
+    overflow-wrap: break-word;
+  }
+}
+
+.comment-user {
+  color: gray;
+
+  &:hover {
+    text-decoration: none;
+    color: gray;
+  }
+
+  & > span {
+    margin-right: 10px;
+
+    :hover {
+      text-decoration: none;
+    }
+  }
+}
