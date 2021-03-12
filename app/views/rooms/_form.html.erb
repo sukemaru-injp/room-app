@@ -1,0 +1,64 @@
+      <%= form_with model: room, url: rooms_path, local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+          <!-- 部分テンプレート↓↓↓ -->
+        <div class="room_field">
+          <p class="room-image-label">
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"room_image" %>
+        </div>
+        <div id="image_preview"><p class="remove">※ファイルを選択してください</p></div>
+
+        <div class="room_field">
+          <div class="room-form-label">
+            <%= f.label :title, "お部屋のタイトル" %>
+          </div>
+          <div>
+            <%= f.text_field :title, class: "room-form-input", placeholder: "例)私の茶室" %>
+          </div>
+        </div>
+
+        <div class="room_field">
+          <div class="room-form-label">
+            <%= f.label :content, "私の部屋のここを見て！" %>
+          </div>
+          <div>
+            <%= f.text_area :content, class: "room-form-text", placeholder: "あなたの部屋のこだわりポイント" %>
+          </div>
+        </div>
+
+        <div class="room_field">
+          <div class="user-form-label">
+            <%= f.label :place_id, "お部屋の場所" %>
+            <%= f.collection_select(:place_id, Place.all, :id, :name, {}, {class:"room-form-select"}) %>
+          </div>
+        </div>  
+
+        <div class="room_field">
+          <div class="user-form-label">
+              <%= f.label :floor_id, "お部屋の間取り" %>
+              <%= f.collection_select(:floor_id, Floor.all, :id, :name, {}, {class:"room-form-select"}) %>
+          </div>
+        </div>
+
+        <div class="login_field">
+          <div class="user-form-label">
+            <%= f.label :style_id, "ライフスタイル" %>
+            <%= f.collection_select(:style_id, Style.all, :id, :name, {}, {class:"room-form-select"}) %>
+          </div>
+        </div>
+
+        <div class="room_field">
+          <div class="room-form-label">
+            <%= f.label :name, "#お部屋にタグ付け" %>
+          </div>
+          <div>
+            <%= f.text_field :name, class: "room-form-input", placeholder: "例)日本の茶室" %>
+          </div>
+        </div>
+
+        <div class="action">
+          <%= f.submit "投稿する", class: "btn btn-success solid" %>
+        </div>
+        <!-- 部分テンプレート↑↑ -->
+      <% end %>
