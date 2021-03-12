@@ -463,8 +463,12 @@ img {
   position: relative;
 }
 
+.rooms-content__title {
+  padding-bottom: 40px;
+}
+
 .rooms-items {
-  margin-top: 30px;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -479,15 +483,15 @@ img {
   -ms-flex-preferred-size: 45%;
       flex-basis: 45%;
   background-color: lightgray;
-  margin: 40px 10px;
+  margin: 30px 10px;
   padding: 25px;
   border-radius: 10px;
   -webkit-box-shadow: 0 5px 10px 5px rgba(119, 118, 118, 0.5);
           box-shadow: 0 5px 10px 5px rgba(119, 118, 118, 0.5);
-  -webkit-transition: -webkit-transform 0.4s ease;
-  transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
-  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
   position: relative;
   z-index: 2;
 }
@@ -503,7 +507,7 @@ img {
 }
 
 .rooms-item__card__img {
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 10px;
 }
 
@@ -553,6 +557,7 @@ img {
   text-align: left;
   font-size: 20px;
   padding: 15px 20px 20px 20px;
+  margin-top: 20px;
 }
 
 .room-form-input {
@@ -584,7 +589,8 @@ img {
   width: 400px;
   background-color: burlywood;
   color: gray;
-  margin: 20px 20px;
+  margin: 0 auto;
+  margin-top: 20px;
   overflow: hidden;
   text-align: center;
   border-radius: 10px;

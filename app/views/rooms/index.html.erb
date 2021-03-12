@@ -42,7 +42,7 @@
       </div>
 
     </div>
-  </div>
+  <%# <div></div> %>
 
         <!-- 検索エリア -->
   <div id="search-content" class="content-width">
@@ -96,59 +96,25 @@
 
     <div id="rooms-content" class="content-width">
       <h2 class="rooms-content__title">#みんなのお部屋</h2>
-      <div class="rooms-items">
-
-        <div class="rooms-item__card">
-          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-            <div class="rooms-item__img">
-            <%= image_tag 'IMG_7144.png' %>
-          </div>
-          <div class="room-item__tag">
-            <a href="#" class="room-tag">
-              #西欧風
-            </a>
-          </div>
+        <div class="rooms-items">
+          <% @rooms.each do |room| %>
+            <div class="rooms-item__card">
+              <h4 class="rooms-item__card__title"><%= room.title %></h4>
+              <a href="#" class="rooms-item__card__user"><%= room.user.name %></a>
+                <div class="rooms-item__img">
+                  <%= image_tag room.image %>
+                </div>
+              <div class="room-item__tag">
+                <a href="#" class="room-tag">
+                  <% room.tags.each do |tag| %>
+                    #<%= tag.name %>
+                  <% end %>
+                </a>
+              </div>
+            </div>
+          <% end %>
         </div>
-
-        <div class="rooms-item__card">
-          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-          <div class="rooms-item__img">
-            <%= image_tag 'IMG_7146.png' %>
-          </div>
-          <div class="room-item__tag">
-            <a href="#" class="room-tag">
-              #ベッドルーム
-            </a>
-          </div>
-
-        </div>
-
-        <div class="rooms-item__card">
-          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-          <div class="rooms-item__img">
-            <%= image_tag 'IMG_7144.png' %>
-          </div>
-          <div class="room-item__tag">
-            <a href="#" class="room-tag">
-              #西欧風
-            </a>
-          </div>
-
-        </div>
-
-        <div class="rooms-item__card">
-          <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-          <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-          <div class="rooms-item__img">
-            <%= image_tag 'IMG_7139.png' %>
-          </div>
-        </div>
-
-
-      </div>
+    </div>
 
 </div>
 
