@@ -12,8 +12,9 @@ class RoomsController < ApplicationController
 
   def create
     @room = RoomsTag.new(room_params)
+    tag_list = params[:rooms_tag][:name].split(",")
     if @room.valid?
-      @room.save
+      @room.save(tag_list)
       redirect_to root_path
     else
       render "new"
