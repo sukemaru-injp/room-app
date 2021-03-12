@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :user_has_room, only: [:new, :create]
+  before_action :no_current_user, only: [:edit, :update]
 
   def index
     @rooms = Room.includes(:user).limit(8).order(id: "DESC")
@@ -51,6 +52,13 @@ class RoomsController < ApplicationController
   def user_has_room
     if Room.exists?(current_user.id)
       flash[:notice] = 'すでにお部屋があります'
+      redirect_to root_path
+    end
+  end
+
+  def no_current_user
+    @room = Room.find(params[:id])
+    if current_user.id != @room.user_id
       redirect_to root_path
     end
   end
