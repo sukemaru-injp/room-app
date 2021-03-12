@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = RoomsTag.new(room_params)
-    tag_list = params[:rooms_tag][:name].split(",")
+    tag_list = params[:room][:name].split(",")
     if @room.valid?
       @room.save(tag_list)
       redirect_to root_path
@@ -23,9 +23,19 @@ class RoomsController < ApplicationController
 
   def edit
     @room = Room.find(params[:id])
+    @form = RoomsTag.new(room: @room)
   end
 
   def update
+    @room = Room.find(params[:id])
+    @form = RoomsTag.new(room_params, room: @room)
+    tag_list = params[:room][:name].split(",")
+    if @form.valid?
+      @form.save(tag_list)
+      redirect_to room_path(@room)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -35,7 +45,7 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:rooms_tag).permit(:image, :title, :content, :place_id, :floor_id, :style_id, :name).merge(user_id: current_user.id)
+    params.require(:room).permit(:image, :title, :content, :place_id, :floor_id, :style_id, :name).merge(user_id: current_user.id)
   end
 
   def user_has_room
