@@ -30,19 +30,25 @@
         </table>
       </div>
 
-      <div class="show-room__btn">
-        <!-- 本人かそれ以外で切り替え -->
-        <% if current_user.id == @room.user_id %>
-          <div class="edit-link">
-              <%= link_to '模様替え', edit_room_path(@room.id), class: "edit-link__btn" %>
-          </div>
-        <% else %>
-          <div class="like-link">
-              <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
-          </div>
-        <% end %>
-        <!-- 切り替え終わり -->
-      </div>
+      <% if user_signed_in? %>
+        <div class="show-room__btn">
+          <!-- 本人かそれ以外で切り替え -->
+          <% if current_user.id == @room.user_id %>
+            <div class="edit-link">
+                <%= link_to '模様替え', edit_room_path(@room.id), class: "edit-link__btn" %>
+            </div>
+
+            <div class="destroy-link">
+                <%= link_to '部屋を削除する', room_path(@room.id), method: :delete, class: "destroy-link__btn" %>
+            </div>
+          <% else %>
+            <div class="like-link">
+                <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
+            </div>
+          <% end %>
+          <!-- 切り替え終わり -->
+        </div>
+      <% end %>
 
       <div class="show-room__content">
         <h4 class="content-title">#シャレゾウさんのお部屋のこだわり</h3>
