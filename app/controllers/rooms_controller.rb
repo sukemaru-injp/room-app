@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :user_has_room, only: [:new, :create]
-  before_action :set_room, only: [:edit, :update, :show]
+  before_action :set_room, only: [:edit, :update, :show, :destroy]
   before_action :no_current_user, only: [:edit, :update]
 
   def index
@@ -39,6 +39,11 @@ class RoomsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @room.destroy
+    redirect_to root_path
   end
 
 

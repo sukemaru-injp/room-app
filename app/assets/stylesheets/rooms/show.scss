@@ -149,12 +149,12 @@ opacity: 0.3;
 .edit-link {
 
   &__btn {
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    background-color: rgba(222, 184, 135, 0.7);
+    border: 2px solid $cBurlywood;
+    background-color: rgba(222, 184, 135, 0.6);
     box-sizing: border-box;
     border-radius: 20px;
     max-width: 400px;
-    padding-top: 30px;
+    padding-top: 20px;
     text-align: center;
     color: $cWhite;
     letter-spacing: 0.1em;
@@ -162,9 +162,10 @@ opacity: 0.3;
     font-weight: 400;
     display: block;
     margin: 0 auto;
+    margin-bottom: 20px;
     cursor: pointer;
     width: 30vw;
-    height: 90px;
+    height: 70px;
     text-decoration: none;
     color: $cBlack;
   }
@@ -206,7 +207,7 @@ opacity: 0.3;
 }
 
 .content-box {
-  height: 40vh;
+  height: 30vh;
   width: 60vw;
   display: inline-block;
   border: 2px solid $cBurlywood;
@@ -271,5 +272,37 @@ opacity: 0.3;
     :hover {
       text-decoration: none;
     }
+  }
+}
+
+.destroy-link {
+
+  &__btn {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    background-color: $cLightGray;
+    box-sizing: border-box;
+    border-radius: 20px;
+    max-width: 400px;
+    padding-top: 20px;
+    text-align: center;
+    color: $cWhite;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 30vw;
+    height: 70px;
+    text-decoration: none;
+    color: $cBlack;
+  }
+
+  :hover {
+  background-color: gray;
+  transition: all 0.4s;
+  text-decoration: none;
+  color: $cBlack;
   }
 }
