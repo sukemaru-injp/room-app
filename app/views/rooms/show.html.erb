@@ -82,5 +82,19 @@
 
       </div>
 
+      <%# コメントフォーム %>
+      <div class="comment-form content-width">
+        <%# <%= form_with(model: room, local: true) do |f| %> 
+          <div class="comment-form__label">
+            <label for="#">#コメントする</label>
+            <%# <%= f.label :hoge, "" %> 
+          </div>
+          <div class="comment-form__input">
+            <input type="text" class="comment-form-content" placeholder="例)いい部屋ですね！">
+            <input type="submit" value="送信" class="comment-form-btn">
+          </div>
+        <%# <% end %> 
+      </div>
+
     </div>
 </div>
