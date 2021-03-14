@@ -3,9 +3,10 @@ class RoomsTag
   attr_accessor :image, :title, :content, :place_id, :floor_id, :style_id, :name, :user_id
 
   with_options presence: true do
-    validates :title
+    validates :title, length: { maximum: 20 }
     validates :content
     validates :image
+    validates :user_id
   end
 
   # activehash関連↓
