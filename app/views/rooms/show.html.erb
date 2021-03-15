@@ -63,37 +63,30 @@
 
       <div class="comment-table">
         <h4 class="comment-table__title">#寄せられているコメント</h4>
-        <div class="comment-table__list">
-          <div class="commetn-content">
-            <p>めちゃくちゃいい部屋ですね！私もこの部屋を真似したいんですけど何かコツとかありませんかねえ</p>
+        <% @comments.each do |comment| %>
+          <div class="comment-table__list">
+              <div class="commetn-content">
+                <%= comment.text %>
+              </div>
+            <%= link_to "by#{comment.user.name}", room_path(comment.room_id), class: "comment-user" %>
           </div>
-          <a href="#" class="comment-user"><span>by</span>おしゃれ子</a>
-        </div>
-
-        <div class="comment-table__list">
-          <p class="commetn-content">アイテムが好みです！</p>
-          <a href="#" class="comment-user"><span>by</span>おしゃれ子</a>
-        </div>
-
-        <div class="comment-table__list">
-          <p class="comment-content">おしゃれな部屋ですね！</p>
-          <a href="#" class="comment-user"><span>by</span>おしゃれ子</a>
-        </div>
+        <% end %>
 
       </div>
 
       <%# コメントフォーム %>
       <div class="comment-form content-width">
-        <%# <%= form_with(model: room, local: true) do |f| %> 
+        <% if user_signed_in? %>
           <div class="comment-form__label">
             <label for="#">#コメントする</label>
-            <%# <%= f.label :hoge, "" %> 
           </div>
           <div class="comment-form__input">
-            <input type="text" class="comment-form-content" placeholder="例)いい部屋ですね！">
-            <input type="submit" value="送信" class="comment-form-btn">
+            <%= form_with(model: [@room, @comment], local: true) do |f|%>
+              <%= f.text_field :text, class: "comment-form-content", placeholder: "例)いい部屋ですね！" %>
+              <%= f.submit "送信", class: "comment-form-btn" %>
+            <% end %>
           </div>
-        <%# <% end %> 
+        <% end %>
       </div>
 
     </div>

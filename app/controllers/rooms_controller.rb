@@ -39,6 +39,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @room.comments.includes(:user).limit(6).order(id: "DESC")
   end
 
   def destroy
