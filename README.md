@@ -67,7 +67,7 @@
 
 | column       | 型          | option            |
 | ------------ | ----------- | ----------------- |
-| text         | text        | null: false       |
+| text         | string      | null: false       |
 | user         | references  | foreign_key: true |
 | room         | references  | foreign_key: true |
 

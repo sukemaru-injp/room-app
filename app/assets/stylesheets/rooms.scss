@@ -198,6 +198,7 @@ img {
 
 .swiper-slide {
     overflow: hidden;
+    box-shadow: 0 5px 30px -10px rgba(0,0,0,0.8);
 
     & > img {
         width: 100%;
@@ -238,6 +239,7 @@ img {
 
 .hero {
     overflow: hidden;
+    padding-bottom: 50px;
     &__title {
         position: absolute;
         top: 50%;
