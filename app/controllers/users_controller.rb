@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   private
   def no_room_user
     @user = User.find(params[:id])
-    unless Room.exists?(@user.id)
+    unless Room.exists?(user_id: @user.id)
       redirect_to new_room_path
     end
   end
