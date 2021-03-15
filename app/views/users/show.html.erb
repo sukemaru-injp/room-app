@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./stylesheets/vendors/bootstrap-reboot.css">
-  <link rel="stylesheet" href="./stylesheets/index.css">
-  <link rel="stylesheet" href="./stylesheets/show.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-</head>
-<body>
-  <div id="content">
+<div id="content">
     <div class="show-room content-width">
-      <h2 class="show-room__user">#シャレゾウさんのページ</h2>
+      <h2 class="show-room__user">#<%= @user.name %>さんのページ</h2>
 
-      <h3 class="show-room__title">お部屋タイトル</h3>
+      <h3 class="show-room__title"><%= @room.title %></h3>
 
       <div class="show-room__img cover-slide inview">
-        <img src="./images/IMG_7139.png" alt="" class="img-zoom inview">
+        <%# <img src="images/IMG_7139.png" alt="" class="img-zoom inview"> %>
+        <%= image_tag @room.image, class: "img-zoom inview" %>
       </div>
 
       <div class="show-room__about">
@@ -26,99 +14,84 @@
           <tbody>
             <tr>
               <th class="detail-item">部屋の場所</th>
-              <td class="detail-value">ベッドルーム</td>
+              <td class="detail-value"><%= @room.place.name %></td>
             </tr>
 
             <tr>
               <th class="detail-item">部屋の間取り</th>
-              <td class="detail-value">1LDK</td>
+              <td class="detail-value"><%= @room.floor.name %></td>
             </tr>
 
             <tr>
               <th class="detail-item">ライフスタイル</th>
-              <td class="detail-value">一人暮らし</td>
+              <td class="detail-value"><%= @room.style.name %></td>
             </tr>
 
           </tbody>
         </table>
       </div>
 
-      <div class="show-room__btn">
-        <!-- 本人かそれ以外で切り替え -->
-        <div class="edit-link">
-            <a href="#" class="edit-link__btn">お部屋を編集する</a>
-        </div>
+      <% if user_signed_in? %>
+        <div class="show-room__btn">
+          <!-- 本人かそれ以外で切り替え -->
+          <% if current_user.id == @room.user_id %>
+            <div class="edit-link">
+                <a href="#" class="edit-link__btn">お部屋を編集する</a>
+            </div>
 
-        <div class="like-link">
-            <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
+            <%# <div class="like-link">
+                <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
+            </div> %>
+          <% end %>
+          <!-- 切り替え終わり -->
         </div>
-        <!-- 切り替え終わり -->
-      </div>
+      <% end %>
 
       <div class="show-room__content">
-        <h4 class="content-title">#シャレゾウさんのお部屋のこだわり</h3>
+        <h4 class="content-title">#<%= @user.name %>さんのお部屋のこだわり</h3>
         <div class="content-box">
           <p class="content-box__text">
-            私の部屋はとてもおしゃれなんです。何よりぬいぐるみをおしゃれに見せるところにこだわって生活しているのでぜひ分かってもらいたいです。
+            <%= @room.content %>
           </p>
         </div>
       </div>
 
-      <div id="rooms-content">
-        <h2 class="rooms-content__title">#お気に入りしている部屋</h2>
-        <div class="rooms-items">
+        <% if user_signed_in? %>
+          <% if current_user.id == @room.user_id %>
+            <div id="rooms-content">
+              <h2 class="rooms-content__title pb-lg">#お気に入りしている部屋</h2>
+              <div class="rooms-items">
 
-            <div class="rooms-item__card">
-              <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-              <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-              <div class="rooms-item__img">
-                <img src="./images/IMG_7144.png" alt="">
-              </div>
-              <div class="room-item__tag">
-                <a href="#" class="room-tag">
-                  #西欧風
-                </a>
+                  <div class="rooms-item__card">
+                    <h3 class="rooms-item__card__title">お部屋タイトル</h4>
+                    <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
+                    <div class="rooms-item__img">
+                      <%= image_tag 'IMG_7142.png' %>
+                    </div>
+                    <div class="room-item__tag">
+                      <a href="#" class="room-tag">
+                        #西欧風
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="rooms-item__card">
+                    <h3 class="rooms-item__card__title">お部屋タイトル</h4>
+                    <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
+                    <div class="rooms-item__img">
+                      <%= image_tag 'IMG_7143.png' %>
+                    </div>
+                    <div class="room-item__tag">
+                      <a href="#" class="room-tag">
+                        #ベッドルーム
+                      </a>
+                    </div>
+                  </div>
+
               </div>
             </div>
-
-            <div class="rooms-item__card">
-              <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-              <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-              <div class="rooms-item__img">
-                <img src="./images/IMG_7146.png" alt="">
-              </div>
-              <div class="room-item__tag">
-                <a href="#" class="room-tag">
-                  #ベッドルーム
-                </a>
-              </div>
-            </div>
-
-            <div class="rooms-item__card">
-              <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-              <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-              <div class="rooms-item__img">
-                <img src="./images/IMG_7144.png" alt="">
-              </div>
-              <div class="room-item__tag">
-                <a href="#" class="room-tag">
-                  #西欧風
-                </a>
-              </div>
-            </div>
-
-            <div class="rooms-item__card">
-              <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-              <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-              <div class="rooms-item__img">
-                <img src="./images/IMG_7139.png" alt="">
-              </div>
-            </div>
-
-        </div>
-      </div>
+          <% end%>
+        <% end %>
 
     </div>
-  </div>
-</body>
-</html>
+</div>
