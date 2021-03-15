@@ -13,4 +13,5 @@ class User < ApplicationRecord
     
 
     has_one :room
+    has_many :comments
 end
