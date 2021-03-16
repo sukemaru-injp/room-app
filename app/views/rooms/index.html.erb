@@ -48,48 +48,44 @@
   <div id="search-content" class="content-width">
     <h2>ワードから検索する</h2>
     <div class="search-form">
-      <div class="search-form__word">
-        <input type="text" name="keyword" id="keyword" placeholder="気になるワードで調べてみよう" class="search-form__word__input">
-        <input type="submit" value="検索する" class="search-form__word__btn">
-      </div>
+      <%= form_with(url: search_rooms_path, local: true, method: :get) do |form| %>
+        <div class="search-form__word">
+          <%= form.text_field :keyword, placeholder: "気になるワードで調べてみよう", class: "search-form__word__input" %>
+          <%= form.submit "検索する", class: "search-form__word__btn" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <div id="search-content" class="content-width">
     <h2>条件から検索する</h2>
-    <div class="search-select">
-      <div class="search-select__container">
-        <label for="" class="search-select__container__label">性別</label>
-        <select name="#" id="" class="search-select__container__list">
-          <option value="0">---</option>
-        </select>
-      </div>
+    <%= search_form_for @p, url: result_rooms_path do |f| %>
+      <div class="search-select">
+          <div class="search-select__container">
+            <%= f.label '性別', class: "search-select__container__label" %>
+            <%= f.collection_select :user_sex_id_eq, Sex.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+          </div>
 
-      <div class="search-select__container">
-        <label for="" class="search-select__container__label">お部屋の場所</label>
-        <select name="#" id="" class="search-select__container__list">
-          <option value="0">---</option>
-        </select>
-      </div>
+          <div class="search-select__container">
+            <%= f.label 'お部屋の場所', class: "search-select__container__label" %>
+            <%= f.collection_select :place_id_eq, Place.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+          </div>
 
-      <div class="search-select__container">
-        <label for="" class="search-select__container__label">お部屋の間取り</label>
-        <select name="#" id="" class="search-select__container__list">
-          <option value="0">---</option>
-        </select>
-      </div>
+          <div class="search-select__container">
+            <%= f.label 'お部屋の間取り', class: "search-select__container__label" %>
+            <%= f.collection_select :floor_id_eq, Floor.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+          </div>
 
-      <div class="search-select__container">
-        <label for="" class="search-select__container__label">ライフスタイル</label>
-        <select name="#" id="" class="search-select__container__list">
-          <option value="0">---</option>
-        </select>
+          <div class="search-select__container">
+            <%= f.label 'ライフスタイル', class: "search-select__container__label" %>
+            <%= f.collection_select :style_id_eq, Style.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+          </div>
       </div>
-
-    </div>
-    <div class="search-select__btn">
-      <input type="submit" value="検索する" class="search-form__word__btn">
-    </div>
+    
+      <div class="search-select__btn">
+        <%= f.submit "検索する", class: "search-form__word__btn" %>
+      </div>
+    <% end %>
   </div>
 
       <!-- 検索エリア終わり -->

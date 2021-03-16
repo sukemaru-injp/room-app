@@ -1,8 +1,9 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :search]
   before_action :user_has_room, only: [:new, :create]
   before_action :set_room, only: [:edit, :update, :show, :destroy]
   before_action :no_current_user, only: [:edit, :update]
+  before_action :result_rooms, only: [:index, :result]
 
   def index
     @rooms = Room.includes(:user).limit(8).order(id: "DESC")
@@ -48,6 +49,14 @@ class RoomsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @rooms = Room.search(params[:keyword])
+  end
+
+  def result
+    @rooms = @p.result.includes(:user).limit(20).order(id: "DESC")
+  end
+
 
   private
   def room_params
@@ -59,7 +68,7 @@ class RoomsController < ApplicationController
   end
 
   def user_has_room
-    if Room.exists?(current_user.id)
+    if Room.exists?(user_id: current_user.id)
       flash[:notice] = 'すでにお部屋があります'
       redirect_to root_path
     end
@@ -71,5 +80,10 @@ class RoomsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def result_rooms
+    @p = Room.joins(:user).ransack(params[:q])
+  end
+
 
 end

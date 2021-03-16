@@ -36,7 +36,11 @@
           <!-- 本人かそれ以外で切り替え -->
           <% if current_user.id == @room.user_id %>
             <div class="edit-link">
-                <a href="#" class="edit-link__btn">お部屋を編集する</a>
+                <%= link_to '模様替え', edit_room_path(@room.id), class: "edit-link__btn" %>
+            </div>
+
+            <div class="destroy-link">
+                <%= link_to '部屋を削除する', room_path(@room.id), method: :delete, class: "destroy-link__btn" %>
             </div>
 
             <%# <div class="like-link">

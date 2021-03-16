@@ -1,0 +1,33 @@
+<div id="content">
+    <div id="rooms-content" class="content-width">
+      <h2 class="rooms-content__title">#ワード検索の結果</h2>
+      <% if @rooms.present? %>
+        <div class="rooms-items">
+          <% @rooms.each do |room| %>
+            <div class="rooms-item__card">
+              <%= link_to room_path(room.id), class: "link-cover" do %>
+                <h4 class="rooms-item__card__title"><%= room.title %></h4>
+                <p class="rooms-item__card__user"><%= room.user.name %></p>
+                  <div class="rooms-item__img">
+                    <%= image_tag room.image %>
+                  </div>
+                <div class="room-item__tag">
+                  <% room.tags.each do |tag| %>
+                    <a href="#" class="room-tag">
+                        #<%= tag.name %>
+                    </a>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="search-answer">
+          <h3 class="no-content">該当するお部屋はありません</h2>
+          <%= link_to 'トップページへ戻る', root_path, class: "room-app" %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
