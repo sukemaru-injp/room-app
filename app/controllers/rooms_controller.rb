@@ -48,6 +48,10 @@ class RoomsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    
+  end
+
 
   private
   def room_params
