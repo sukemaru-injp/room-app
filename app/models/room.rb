@@ -7,7 +7,14 @@ class Room < ApplicationRecord
 
   has_one_attached :image
 
-
+  def self.search(search)
+    if search != ""
+      Room.where('title LIKE(?)', "%#{search}%")
+      Room.where('content LIKE(?)', "%#{search}%")
+    else
+      Room.includes(:user).limit(20).order(id: "DESC")
+    end
+  end
 
   # ↓activehash関連
   extend ActiveHash::Associations::ActiveRecordExtensions
