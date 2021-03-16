@@ -1,7 +1,7 @@
 <div id="content">
     <div id="rooms-content" class="content-width">
       <h2 class="rooms-content__title">#ワード検索の結果</h2>
-      <% if @rooms == true %>
+      <% if @rooms.present? %>
         <div class="rooms-items">
           <% @rooms.each do |room| %>
             <div class="rooms-item__card">
