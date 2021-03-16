@@ -82,7 +82,7 @@ class RoomsController < ApplicationController
   end
 
   def result_rooms
-    @p = Room.ransack(params[:q])
+    @p = Room.joins(:user).ransack(params[:q])
   end
 
 

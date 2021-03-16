@@ -62,10 +62,8 @@
     <%= search_form_for @p, url: result_rooms_path do |f| %>
       <div class="search-select">
           <div class="search-select__container">
-            <label for="" class="search-select__container__label">性別</label>
-            <select name="#" id="" class="search-select__container__list">
-              <option value="0">---</option>
-            </select>
+            <%= f.label '性別', class: "search-select__container__label" %>
+            <%= f.collection_select :user_sex_id_eq, Sex.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
           </div>
 
           <div class="search-select__container">
