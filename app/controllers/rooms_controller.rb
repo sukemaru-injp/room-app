@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   before_action :user_has_room, only: [:new, :create]
   before_action :set_room, only: [:edit, :update, :show, :destroy]
   before_action :no_current_user, only: [:edit, :update]
+  before_action :result_rooms, only: [:index, :result]
 
   def index
     @rooms = Room.includes(:user).limit(8).order(id: "DESC")
@@ -53,7 +54,7 @@ class RoomsController < ApplicationController
   end
 
   def result
-    
+    @rooms = @p.result.includes(:user).limit(20).order(id: "DESC")
   end
 
 
@@ -79,5 +80,10 @@ class RoomsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def result_rooms
+    @p = Room.ransack(params[:q])
+  end
+
 
 end
