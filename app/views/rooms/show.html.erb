@@ -42,9 +42,13 @@
                 <%= link_to '部屋を削除する', room_path(@room.id), method: :delete, class: "destroy-link__btn" %>
             </div>
           <% else %>
-            <div class="like-link">
-                <button class="like-link__btn">お気に入りする<i class="far fa-thumbs-up 3x"></i></button>
-            </div>
+
+
+            <%= link_to room_likes_path(@room.id), method: :post do %> 
+              <div class="like-link">
+                  <button class="like-link__btn">お気に入りする<i class="far fa-thumbs-up 3x"></i></button>
+              </div>
+            <% end %>
           <% end %>
           <!-- 切り替え終わり -->
         </div>
