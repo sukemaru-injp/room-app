@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   before_action :result_rooms, only: [:index, :result]
 
   def index
-    @rooms = Room.includes(:user).limit(8).order(id: "DESC")
+    @rooms = Room.includes(:user).limit(10).order(id: "DESC")
   end
 
   def new
