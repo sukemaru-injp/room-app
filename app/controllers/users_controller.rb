@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @room = @user.room
+    @like_rooms = Like.where(user_id: @user.id).includes(:user).limit(10).order(id: "DESC")
   end
 
   private

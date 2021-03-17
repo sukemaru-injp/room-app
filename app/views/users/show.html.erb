@@ -64,35 +64,31 @@
           <% if current_user.id == @room.user_id %>
             <div id="rooms-content">
               <h2 class="rooms-content__title pb-lg">#お気に入りしている部屋</h2>
-              <div class="rooms-items">
-
-                  <div class="rooms-item__card">
-                    <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-                    <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-                    <div class="rooms-item__img">
-                      <%= image_tag 'IMG_7142.png' %>
+              <% if @like_rooms.present? %>
+                <div class="rooms-items">
+                  <% @like_rooms.each do |like| %>
+                    <div class="rooms-item__card">
+                      <%= link_to room_path(like.room.id), class: "link-cover" do %>
+                        <h4 class="rooms-item__card__title"><%= like.room.title %></h4>
+                        <p class="rooms-item__card__user"><%= like.room.user.name %></p>
+                          <div class="rooms-item__img">
+                            <%= image_tag like.room.image %>
+                          </div>
+                        <div class="room-item__tag">
+                          <% like.room.tags.each do |tag| %>
+                            <a href="#" class="room-tag">
+                                #<%= tag.name %>
+                            </a>
+                          <% end %>
+                        </div>
+                      <% end %>
                     </div>
-                    <div class="room-item__tag">
-                      <a href="#" class="room-tag">
-                        #西欧風
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="rooms-item__card">
-                    <h3 class="rooms-item__card__title">お部屋タイトル</h4>
-                    <a href="#" class="rooms-item__card__user">ユーザーネーム</a>
-                    <div class="rooms-item__img">
-                      <%= image_tag 'IMG_7143.png' %>
-                    </div>
-                    <div class="room-item__tag">
-                      <a href="#" class="room-tag">
-                        #ベッドルーム
-                      </a>
-                    </div>
-                  </div>
-
-              </div>
+                  <% end %>
+                </div>
+              <% else %>
+                <h3 class="no-content">まだお気に入りしていません</h2>
+                <%= link_to '探しに行く', root_path, class: "to-top" %>
+              <% end %>
             </div>
           <% end%>
         <% end %>

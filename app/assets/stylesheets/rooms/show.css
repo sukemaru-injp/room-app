@@ -2,6 +2,16 @@
   padding-bottom: 40px;
 }
 
+.to-top {
+  color: burlywood;
+  font-size: 20px;
+}
+
+.to-top:hover {
+  text-decoration: none;
+  color: burlywood;
+}
+
 .cover-slide {
   position: relative;
   text-align: center;

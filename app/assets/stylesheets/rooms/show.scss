@@ -10,6 +10,15 @@ $cLikepink: rgb(245, 160, 175);
   padding-bottom: 40px;
 }
 
+.to-top {
+  color: $cBurlywood;
+  font-size: 20px;
+
+  &:hover {
+    text-decoration: none;
+    color: $cBurlywood;
+  }
+}
 
 .cover-slide {
   position: relative;
