@@ -230,6 +230,10 @@
   text-decoration: none;
 }
 
+.like-link {
+  display: inline-block;
+}
+
 .like-link__btn {
   border: 2px solid white;
   background-color: pink;
