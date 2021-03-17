@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :no_room_user, only: [:show]
+  before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
