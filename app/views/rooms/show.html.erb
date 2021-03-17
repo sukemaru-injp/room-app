@@ -42,8 +42,8 @@
                 <%= link_to '部屋を削除する', room_path(@room.id), method: :delete, class: "destroy-link__btn" %>
             </div>
           <% else %>
-            <div class="like-link">
-                <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
+            <div id="likes_buttons_<%= @room.id %>">
+              <%= render partial: 'likes/like', locals: { room: @room} %>
             </div>
           <% end %>
           <!-- 切り替え終わり -->

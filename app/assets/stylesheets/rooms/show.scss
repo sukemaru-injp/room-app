@@ -182,17 +182,24 @@ opacity: 0.3;
   }
 }
 
+.like {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .like-link {
+  display: inline-block;
 
   &__btn {
-    border: 2px solid $cLikepink;
-    background-color: rgba(222, 184, 135, 0.2);
+    border: 2px solid $cWhite;
+    background-color: $cLikepink;
     box-sizing: border-box;
     border-radius: 20px;
     max-width: 400px;
     text-align: center;
     color: $cBlack;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     font-size: 18px;
     font-weight: 400;
     display: block;
@@ -204,9 +211,45 @@ opacity: 0.3;
     color: $cBlack;
     outline: none;
 
+    &:hover {
+      background-color: rgb(245, 130, 150);
+      transition: background-color 0.6s;
+    }
+
     &:focus {
       outline: 0;
     }
+  }
+
+  &__btn-del {
+    border: 2px solid $cWhite;
+    background-color: rgb(245, 130, 150);
+    box-sizing: border-box;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+    color: $cBlack;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 30vw;
+    height: 90px;
+    text-decoration: none;
+    color: $cBlack;
+    outline: none;
+
+    &:hover {
+      transition: background-color 0.6s;
+      background-color: red;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
   }
 }
 
