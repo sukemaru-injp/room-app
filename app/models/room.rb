@@ -3,6 +3,7 @@ class Room < ApplicationRecord
   has_many :room_tag_relations, dependent: :destroy
   has_many :tags, through: :room_tag_relations, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
 
   has_one_attached :image
