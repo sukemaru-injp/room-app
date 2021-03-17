@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :search]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :search, :result]
   before_action :user_has_room, only: [:new, :create]
   before_action :set_room, only: [:edit, :update, :show, :destroy]
   before_action :no_current_user, only: [:edit, :update]
