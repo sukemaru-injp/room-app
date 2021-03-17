@@ -15,7 +15,11 @@
           <div class="swiper-slide">
             <div class="hero__title">模様替えを自慢しよう</div>
             <div class="hero__link">
-              <a href="#" class="hero__btn">編集する</a>
+              <% if user_signed_in? %>
+                <%= link_to "編集する", user_path(current_user.id), class: "hero__btn" %>
+              <% else %>
+                <%= link_to "ログインする", new_user_session_path, class: "hero__btn" %>
+              <% end%>
             </div>
             <%= image_tag 'IMG_7142.png' %>
           </div>
