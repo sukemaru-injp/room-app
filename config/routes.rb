@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
   resources :rooms do
     resources :comments, only: :create
+    resource :likes, only: [:create, :destroy]
     collection do
       get 'search'
       get 'result'
