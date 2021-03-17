@@ -69,8 +69,7 @@ class RoomsController < ApplicationController
 
   def user_has_room
     if Room.exists?(user_id: current_user.id)
-      flash[:notice] = 'すでにお部屋があります'
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     end
   end
 
