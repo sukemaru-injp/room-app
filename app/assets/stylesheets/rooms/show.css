@@ -226,6 +226,10 @@
   color: black;
 }
 
+.like:hover {
+  text-decoration: none;
+}
+
 .like-link__btn {
   border: 2px solid white;
   background-color: pink;
@@ -255,6 +259,38 @@
 }
 
 .like-link__btn:focus {
+  outline: 0;
+}
+
+.like-link__btn-del {
+  border: 2px solid white;
+  background-color: #f58296;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+  max-width: 400px;
+  text-align: center;
+  color: black;
+  letter-spacing: 0.2em;
+  font-size: 18px;
+  font-weight: 400;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 30vw;
+  height: 90px;
+  text-decoration: none;
+  color: black;
+  outline: none;
+}
+
+.like-link__btn-del:hover {
+  -webkit-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+  background-color: red;
+}
+
+.like-link__btn-del:focus {
   outline: 0;
 }
 

@@ -43,11 +43,18 @@
             </div>
           <% else %>
 
-
-            <%= link_to room_likes_path(@room.id), method: :post do %> 
-              <div class="like-link">
-                  <button class="like-link__btn">お気に入りする<i class="far fa-thumbs-up 3x"></i></button>
-              </div>
+            <% if Like.exists?(user_id: current_user.id, room_id: @room.id) %>
+              <%= link_to room_likes_path(@room.id), method: :delete, class: "like" do %> 
+                <div class="like-link">
+                    <button class="like-link__btn-del">お気に入り済み<i class="far fa-thumbs-up 3x"></i></button>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to room_likes_path(@room.id), method: :post, class: "like" do %> 
+                <div class="like-link">
+                    <button class="like-link__btn">お気に入りする<i class="far fa-thumbs-up 3x"></i></button>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
           <!-- 切り替え終わり -->

@@ -1,15 +1,18 @@
 class LikesController < ApplicationController
   before_action :set_room
+  before_action :authenticate_user!
 
   def create
     if @room.user_id != current_user.id
-    @likes = Like.create(user_id: current_user.id, room_id: @room.id)
+    @like = Like.create(user_id: current_user.id, room_id: @room.id)
     redirect_to root_path
     end
   end
 
   def destroy
-
+    @like = Like.find_by(user_id: current_user.id, room_id: @room.id)
+    @like.destroy
+    redirect_to root_path
   end
 
   private 
