@@ -5,7 +5,7 @@
     </div>
   <% end %>
 <% else %>
-  <%= link_to room_likes_path(room.id), method: :post, class: "like" do %> 
+  <%= link_to room_likes_path(room.id), method: :post, remote: true, class: "like" do %> 
     <div class="like-link">
         <button class="like-link__btn">お気に入りする<i class="far fa-thumbs-up 3x"></i></button>
     </div>
