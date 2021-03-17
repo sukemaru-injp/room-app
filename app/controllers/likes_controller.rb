@@ -11,7 +11,6 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find_by(user_id: current_user.id, room_id: @room.id)
     @like.destroy
-    redirect_to root_path
   end
 
   private 
