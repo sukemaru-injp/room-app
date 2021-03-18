@@ -68,7 +68,7 @@
               <div class="commetn-content">
                 <%= comment.text %>
               </div>
-            <%= link_to "by#{comment.user.name}", room_path(comment.room_id), class: "comment-user" %>
+            <%= link_to "by#{comment.user.name}", user_path(comment.user_id), class: "comment-user" %>
           </div>
         <% end %>
 
