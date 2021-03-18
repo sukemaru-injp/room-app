@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tags do
+    get 'rooms', to: 'rooms#tagsearch'
+  end
+
   resources :users, only: :show
 end
