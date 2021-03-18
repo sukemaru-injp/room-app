@@ -10,8 +10,7 @@ class Room < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Room.where('title LIKE(?)', "%#{search}%")
-      Room.where('content LIKE(?)', "%#{search}%")
+      Room.where(['title LIKE(?) OR content LIKE(?)', "%#{search}%", "%#{search}%"]).includes(:user).limit(20).order(id: "DESC")
     else
       Room.includes(:user).limit(20).order(id: "DESC")
     end
