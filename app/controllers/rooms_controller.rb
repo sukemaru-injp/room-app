@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   before_action :result_rooms, only: [:index, :result]
 
   def index
-    @rooms = Room.includes(:user).limit(10).order(id: "DESC")
+    @rooms = Room.includes(:user).limit(10).order(updated_at: "DESC")
   end
 
   def new
@@ -54,12 +54,12 @@ class RoomsController < ApplicationController
   end
 
   def result
-    @rooms = @p.result.includes(:user).limit(20).order(id: "DESC")
+    @rooms = @p.result.includes(:user).limit(20).order(updated_at: "DESC")
   end
 
   def tagsearch
     @tag = Tag.find(params[:tag_id])
-    @rooms = @tag.rooms.includes(:user).limit(20).order(id: "DESC")
+    @rooms = @tag.rooms.includes(:user).limit(20).order(updated_at: "DESC")
   end
 
 
