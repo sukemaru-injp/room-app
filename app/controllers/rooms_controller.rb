@@ -57,6 +57,11 @@ class RoomsController < ApplicationController
     @rooms = @p.result.includes(:user).limit(20).order(id: "DESC")
   end
 
+  def tagsearch
+    @tag = Tag.find(params[:tag_id])
+    @rooms = @tag.rooms.includes(:user).limit(20).order(id: "DESC")
+  end
+
 
   private
   def room_params

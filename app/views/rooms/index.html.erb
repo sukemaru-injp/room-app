@@ -107,9 +107,9 @@
                   </div>
                 <div class="room-item__tag">
                   <% room.tags.each do |tag| %>
-                    <a href="#" class="room-tag">
+                    <%= link_to tag_rooms_path(tag.id), class: "room-tag" do %>
                         #<%= tag.name %>
-                    </a>
+                    <% end %>
                   <% end %>
                 </div>
               <% end %>
