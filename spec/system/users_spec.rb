@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe "新規登録", type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -25,10 +25,56 @@ RSpec.describe "Users", type: :system do
       }.to change { User.count }.by(1)
       # トップページへ
       expect(current_path).to eq(root_path)
-      # 新規登録、ログインボタンがないこと
+      # 新規登録、ログインボタンがない
       find('button[class="mobile-menu__btn"]').click
       expect(page).to have_no_content('新規登録')
       expect(page).to have_no_content('ログイン')
     end
   end
 end
+
+RSpec.describe 'ログイン', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+  end
+
+  context 'ログインできる' do
+    it 'ユーザー情報が正しければログインできる' do
+      # トップページ
+      visit root_path
+      # サインアップページへ
+      find('button[class="mobile-menu__btn"]').click
+      expect(page).to have_content('ログイン')
+      visit new_user_session_path
+      # 正しいユーザー情報入力
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: @user.password
+      find('input[name="commit"]').click
+      # トップページへ
+      expect(current_path).to eq(root_path)
+      # 新規登録、ログインボタンがない
+      find('button[class="mobile-menu__btn"]').click
+      expect(page).to have_no_content('新規登録')
+      expect(page).to have_no_content('ログイン')
+    end
+  end
+
+  context 'ログインできないとき' do
+    it 'ユーザー情報が正しくなければログインできない' do
+      # トップページ
+      visit root_path
+      # サインアップページへ
+      find('button[class="mobile-menu__btn"]').click
+      expect(page).to have_content('ログイン')
+      visit new_user_session_path
+      #誤ったユーザー情報を入力
+      fill_in 'Email', with: ""
+      fill_in 'Password', with: ""
+      find('input[name="commit"]').click
+      # ログインページへ戻る
+      expect(current_path).to eq(new_user_session_path)
+    end
+  end
+
+end
+
