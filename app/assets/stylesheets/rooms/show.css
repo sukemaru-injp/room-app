@@ -456,4 +456,29 @@
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
+
+.bc-wood {
+  background-color: rgba(222, 184, 135, 0.4);
+  width: 100vw;
+  height: 100vh;
+}
+
+.trendy-about {
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  padding-top: 100px;
+}
+
+.trendy-about__title {
+  letter-spacing: 0.1em;
+  font-size: 2em;
+}
+
+.trendy-about__content {
+  margin-top: 30px;
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  line-height: 35px;
+}
 /*# sourceMappingURL=show.css.map */

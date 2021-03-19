@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
+  resources :abouts, only: [:index]
 end
