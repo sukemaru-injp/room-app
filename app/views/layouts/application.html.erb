@@ -49,6 +49,13 @@
                 <li class="mobile-menu__item">
                     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "mobile-menu__link" %>
                 </li>
+
+                <% unless Room.exists?(user_id: current_user.id)%>
+                    <li class="mobile-menu__item">
+                        <%= link_to 'お部屋を投稿する', new_room_path, class: "mobile-menu__link" %>
+                    </li>
+                <% end%>
+
             <% else %>
                 <li class="mobile-menu__item">
                     <%= link_to '新規登録', new_user_registration_path, class: "mobile-menu__link" %>
