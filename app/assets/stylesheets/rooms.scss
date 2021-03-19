@@ -4,7 +4,7 @@ $cBurlywood: burlywood;
 $cLightGray: lightgray;
 
 body {
-    font-family: 'PT Sans', 'Noto Sans JP', sans-serif;
+    font-family: 'Abril Fatface', 'Noto Serif JP', cursive , serif;
 }
 
 .error-alert {
@@ -19,7 +19,6 @@ body {
     color: rgb(182, 48, 0);
     margin-bottom: 10px;
 }
-
 
 .menu-open {
     & #container {
@@ -122,15 +121,15 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 .header-left {
-    margin-left: 20px;
+    margin-left: 40px;
 
     & .room-app {
         text-decoration: none;
-        font-size: 30px;
+        font-size: 2.5em;
         color: $cBlack;
     }
 }
@@ -270,7 +269,7 @@ img {
         line-height: 45px;
         text-align: center;
         color: $cWhite;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.1em;
         font-size: 1.1rem;
         font-weight: 400;
         display: block;
@@ -474,7 +473,7 @@ img {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 94%;
+        height: 95%;
         background-color: $cBurlywood;
         opacity: 0.5;
         border-radius: 10px;
