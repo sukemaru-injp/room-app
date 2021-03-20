@@ -45,6 +45,10 @@ body {
     opacity: 0.9;
 }
 
+#content {
+    padding-bottom: 100px;
+}
+
 .mobile-menu {
     position: fixed;
     right: 0;
@@ -565,7 +569,6 @@ img {
     height: 60px;
     text-align: center;
     background-color: $cBurlywood;
-    margin-top: 100px;
     padding-top: 20px;
 
     &__copyright {
