@@ -1,9 +1,7 @@
 <div id="content">
     <div class="hero">
       <div class="swiper-container">
-        <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-          <!-- Slides -->
           <div class="swiper-slide">
             <div class="hero__title">あなたのお部屋を投稿しよう</div>
             <div class="hero__link">
@@ -46,75 +44,57 @@
       </div>
 
     </div>
-  <%# <div></div> %>
 
-        <!-- 検索エリア -->
-  <div id="search-content" class="content-width">
-    <h2>ワードから検索する</h2>
-    <div class="search-form">
-      <%= form_with(url: search_rooms_path, local: true, method: :get) do |form| %>
-        <div class="search-form__word">
-          <%= form.text_field :keyword, placeholder: "気になるワードで調べてみよう", class: "search-form__word__input" %>
-          <%= form.submit "検索する", class: "search-form__word__btn" %>
+  <!-- 検索エリア -->
+    <div id="search-content" class="content-width">
+      <h2>ワードから検索する</h2>
+      <div class="search-form">
+        <%= form_with(url: search_rooms_path, local: true, method: :get) do |form| %>
+          <div class="search-form__word">
+            <%= form.text_field :keyword, placeholder: "気になるワードで調べてみよう", class: "search-form__word__input" %>
+            <%= form.submit "検索する", class: "search-form__word__btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="search-content" class="content-width">
+      <h2>条件から検索する</h2>
+      <%= search_form_for @p, url: result_rooms_path do |f| %>
+        <div class="search-select">
+            <div class="search-select__container">
+              <%= f.label '性別', class: "search-select__container__label" %>
+              <%= f.collection_select :user_sex_id_eq, Sex.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+            </div>
+
+            <div class="search-select__container">
+              <%= f.label 'お部屋の場所', class: "search-select__container__label" %>
+              <%= f.collection_select :place_id_eq, Place.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+            </div>
+
+            <div class="search-select__container">
+              <%= f.label 'お部屋の間取り', class: "search-select__container__label" %>
+              <%= f.collection_select :floor_id_eq, Floor.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+            </div>
+
+            <div class="search-select__container">
+              <%= f.label 'ライフスタイル', class: "search-select__container__label" %>
+              <%= f.collection_select :style_id_eq, Style.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
+            </div>
+        </div>
+      
+        <div class="search-select__btn">
+          <%= f.submit "検索する", class: "search-form__word__btn" %>
         </div>
       <% end %>
     </div>
-  </div>
 
-  <div id="search-content" class="content-width">
-    <h2>条件から検索する</h2>
-    <%= search_form_for @p, url: result_rooms_path do |f| %>
-      <div class="search-select">
-          <div class="search-select__container">
-            <%= f.label '性別', class: "search-select__container__label" %>
-            <%= f.collection_select :user_sex_id_eq, Sex.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
-          </div>
-
-          <div class="search-select__container">
-            <%= f.label 'お部屋の場所', class: "search-select__container__label" %>
-            <%= f.collection_select :place_id_eq, Place.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
-          </div>
-
-          <div class="search-select__container">
-            <%= f.label 'お部屋の間取り', class: "search-select__container__label" %>
-            <%= f.collection_select :floor_id_eq, Floor.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
-          </div>
-
-          <div class="search-select__container">
-            <%= f.label 'ライフスタイル', class: "search-select__container__label" %>
-            <%= f.collection_select :style_id_eq, Style.all, :id, :name, {disabled: 1, include_blank: '指定なし'}, {class: "search-select__container__list"} %>
-          </div>
-      </div>
-    
-      <div class="search-select__btn">
-        <%= f.submit "検索する", class: "search-form__word__btn" %>
-      </div>
-    <% end %>
-  </div>
-
-      <!-- 検索エリア終わり -->
+    <!-- 検索エリア終わり -->
 
     <div id="rooms-content" class="content-width">
       <h2 class="rooms-content__title">#みんなのお部屋</h2>
         <div class="rooms-items">
-          <% @rooms.each do |room| %>
-            <div class="rooms-item__card">
-              <%= link_to room_path(room.id), class: "link-cover" do %>
-                <h4 class="rooms-item__card__title"><%= room.title %></h4>
-                <p class="rooms-item__card__user"><%= room.user.name %></p>
-                  <div class="rooms-item__img">
-                    <%= image_tag room.image %>
-                  </div>
-                <div class="room-item__tag">
-                  <% room.tags.each do |tag| %>
-                    <%= link_to tag_rooms_path(tag.id), class: "room-tag" do %>
-                        #<%= tag.name %>
-                    <% end %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+          <%= render partial: "shared/content", locals: { rooms: @rooms } %>
         </div>
     </div>
 
