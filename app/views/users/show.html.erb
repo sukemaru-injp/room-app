@@ -81,9 +81,9 @@
                           </div>
                         <div class="room-item__tag">
                           <% like.room.tags.each do |tag| %>
-                            <a href="#" class="room-tag">
-                                #<%= tag.name %>
-                            </a>
+                            <%= link_to tag_rooms_path(tag.id), class: "room-tag" do %>
+                              #<%= tag.name %>
+                            <% end %>
                           <% end %>
                         </div>
                       <% end %>
