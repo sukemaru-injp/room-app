@@ -5,7 +5,6 @@
       <h3 class="show-room__title"><%= @room.title %></h3>
 
       <div class="show-room__img cover-slide inview">
-        <%# <img src="images/IMG_7139.png" alt="" class="img-zoom inview"> %>
         <%= image_tag @room.image, class: "img-zoom inview" %>
       </div>
 
@@ -47,10 +46,6 @@
             <div class="destroy-link">
                 <%= link_to '部屋を削除する', room_path(@room.id), method: :delete, class: "destroy-link__btn" %>
             </div>
-
-            <%# <div class="like-link">
-                <button class="like-link__btn">お気に入りする<i class="far fa-heart 3x"></i></button>
-            </div> %>
           <% end %>
           <!-- 切り替え終わり -->
         </div>
