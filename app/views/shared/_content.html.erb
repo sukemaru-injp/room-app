@@ -1,0 +1,18 @@
+  <% rooms.each do |room| %>
+    <div class="rooms-item__card">
+      <%= link_to room_path(room.id), class: "link-cover" do %>
+        <h4 class="rooms-item__card__title"><%= room.title %></h4>
+        <p class="rooms-item__card__user"><%= room.user.name %></p>
+          <div class="rooms-item__img">
+            <%= image_tag room.image %>
+          </div>
+            <div class="room-item__tag">
+          <% room.tags.each do |tag| %>
+            <%= link_to tag_rooms_path(tag.id), class: "room-tag" do %>
+              #<%= tag.name %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
