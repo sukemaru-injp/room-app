@@ -1,90 +1,69 @@
-# README
 
-# table
+# Trendy Estate
+https://gyazo.com/c0bbd79cdb4b5f9a2235333cbee3d6d4
 
-## users
+## 概要
+お部屋の内装を共有したり、これからオシャレな部屋を作りたい人が、他の人の部屋を検索しながら自身の参考にしたりすることのできるアプリです。
 
-| column       | 型          | option          |
-| ------------ | ----------- | --------------- |
-| name         | string      | null: false     |
-| email        | string      | null: false     |
-| password     | string      | null: false     |
-| sex_id       | integer     | null: false     |
+## URL
 
-### association
-- has_one :room
-- has_many :comments
-- has_many :likes
+## 開発した背景
+コロナウイルスの影響で、おうち時間を強いられる世の中になってしまいました。
+そのような情勢の中で、「今楽しめることは何なのか？」を考えた時このアプリケーションを思いつきました。
+家にいる時間が増えたことにより、お部屋をオシャレに模様替えしたり、新しいインテリアを取り入れてみたりした人が増えたと思います。
+また、これから模様替えにとりかかろうとしている人の参考になるものがあれば助けになることができると思いました。
+コロナウイルスにより行動が制限されているからこそ、今できることを楽しむことのできるサービスを作りたいという思いでこのアプリケーションを開発いたしました。
 
+## 機能一覧
+- ユーザー管理機能(devise)
+- 新規投稿機能
+- 投稿一覧ページ
+- 投稿詳細ページ
+- 投稿編集機能
+- 投稿削除機能
+- タグ付け機能
+- タグ検索
+- フリーワード検索
+- 条件検索機能(ransack)
+- コメント機能
+- お気に入り機能(非同期通信)
+- お気に入り一覧機能
 
-## rooms
+## 環境・使用技術
+### フロントエンド
+- HTML
+- SCSS
+- JavaScript(swiper.js, jquery)
 
-| column       | 型          | option            |
-| ------------ | ----------- | ----------------- |
-| title        | string      | null: false       |
-| content      | text        | null: false       |
-| place_id     | integer     | null: false       |
-| floor_id     | integer     | null: false       |
-| style_id     | integer     | null: false       |
-| user         | references  | foreign_key: true |
+### バックエンド
 
-### association
+- Ruby 2.6.5
+- Rails 6.0.0
 
-- belongs_to :user
-- has_many :room_tag_relations
-- has_many :tags, through: :room_tag_relations
-- has_many :comments, dependent: :destroy
-- has_many :likes, dependent: :destroy
+### 開発環境
+- MySQL
 
+### 本番環境
+- AWS(EC2)
 
+### ソースコード管理
+- GitHub
 
-## room_tag_relations
+### テスト
+- RSpec(単体/結合)
+- FactoryBot
 
-| column       | 型          | option            |
-| ------------ | ----------- | ----------------- |
-| room         | references  | foreign_key: true |
-| tag          | references  | foreign_key: true |
+### その他技術
+- レスポンス対応
+- 非同期通信
 
-### association
+### 工夫した点
+- トップページを開いた時点でどんなサービスなのか直感的に分かりやすいUIを意識した実装
+- モバイルファーストでの実装を意識
+- ユーザーにオシャレに関心のある人を想定しているので、スタイリッシュなUIを意識した実装
+- 検索のバリエーションを増やすことで、色々な条件で検索できるように実装
+- 自身がお気に入りにしたものをいつでも見返すことができるように実装
 
-- belongs_to :room
-- belongs_to :tag
-
-
-## tags
-
-| column       | 型          | option                        |
-| ------------ | ----------- | ----------------------------- |
-| name         | string      | null: false, uniqueness: true |
-
-### association
-
-- has_many :rooms, through: :room_tag_relations
-- has_many :room_tag_relations
-
-
-## comments 
-
-| column       | 型          | option            |
-| ------------ | ----------- | ----------------- |
-| text         | string      | null: false       |
-| user         | references  | foreign_key: true |
-| room         | references  | foreign_key: true |
-
-### association
-
-- belongs_to :user
-- belongs_to :room
-
-## likes 
-
-| column       | 型          | option            |
-| ------------ | ----------- | ----------------- |
-| user         | references  | foreign_key: true |
-| room         | references  | foreign_key: true |
-
-- belongs_to :user
-- belongs_to :room
-
-
+### ER図
+https://gyazo.com/4525ef01a89c759a5ed8eb1702bfa78d
 
