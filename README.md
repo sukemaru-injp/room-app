@@ -1,6 +1,7 @@
 
 # Trendy Estate
-https://gyazo.com/c0bbd79cdb4b5f9a2235333cbee3d6d4
+<img width="320" alt="top-img" src="https://user-images.githubusercontent.com/72376331/111897318-a5526280-8a62-11eb-9583-018f9adccb41.png">
+
 
 ## 概要
 お部屋の内装を共有したり、これからオシャレな部屋を作りたい人が、他の人の部屋を検索しながら自身の参考にしたりすることのできるアプリです。
@@ -50,7 +51,7 @@ https://gyazo.com/c0bbd79cdb4b5f9a2235333cbee3d6d4
 - GitHub
 
 ### テスト
-- RSpec(単体/結合)
+- RSpec(単体・結合)
 - FactoryBot
 
 ### その他技術
@@ -65,5 +66,5 @@ https://gyazo.com/c0bbd79cdb4b5f9a2235333cbee3d6d4
 - 自身がお気に入りにしたものをいつでも見返すことができるように実装
 
 ### ER図
-https://gyazo.com/4525ef01a89c759a5ed8eb1702bfa78d
+![er-map](https://user-images.githubusercontent.com/72376331/111897337-b4391500-8a62-11eb-83a8-2ec4a1ef2d99.png)
 
