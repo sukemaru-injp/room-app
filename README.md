@@ -45,7 +45,7 @@
 - MySQL
 
 ### 本番環境
-- AWS(EC2)
+- AWS(EC2,S3,)
 
 ### ソースコード管理
 - GitHub
