@@ -1,6 +1,6 @@
 <div id="content">
     <div class="show-room content-width">
-      <h2 class="show-room__user">#<%= @room.user.name %>のお部屋</h2>
+      <h2 class="show-room__user">#<%= @room.user.name %>さんのお部屋</h2>
 
       <h3 class="show-room__title"><%= @room.title %></h3>
 
@@ -51,7 +51,7 @@
       <% end %>
 
       <div class="show-room__content">
-        <h4 class="content-title">#シャレゾウさんのお部屋のこだわり</h3>
+        <h4 class="content-title">#<%= @room.user.name %>さんのお部屋のこだわり</h3>
         <div class="content-box">
           <p class="content-box__text">
             <%= @room.content%>
